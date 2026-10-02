@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>
+    House Booking - Online Rent House Finder
+</title>
+
+
+<!-- GOOGLE FONT -->
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+>
+
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+/* =========================================
+   BODY
+========================================= */
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+        linear-gradient(
+            rgba(0,0,0,0.50),
+            rgba(0,0,0,0.50)
+        ),
+
+        url("https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1500&q=80");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+header {
+
+    width: 100%;
+
+    background: #0d6efd;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 8%;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.35);
+
+    position: relative;
+
+    z-index: 10;
+
+}
+
+
+.logo {
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    white-space: nowrap;
+
+}
+
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+nav ul {
+
+    display: flex;
+
+    list-style: none;
+
+    gap: 25px;
+
+    align-items: center;
+
+}
+
+
+nav ul li a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+
+}
+
+
+nav ul li a:hover {
+
+    color: #d8f8ff;
+
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main {
+
+    min-height: calc(100vh - 70px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+
+}
+
+
+/* =========================================
+   BOOKING FORM
+========================================= */
+
+.container {
+
+    width: 100%;
+
+    max-width: 550px;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            rgba(79,172,254,0.96),
+            rgba(0,242,254,0.94),
+            rgba(67,233,123,0.94),
+            rgba(56,249,215,0.94)
+        );
+
+    background-size: 300% 300%;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.40);
+
+    border:
+        2px solid rgba(255,255,255,0.75);
+
+    animation:
+        formGradient 8s ease infinite,
+        formAppear 0.7s ease;
+
+}
+
+
+/* =========================================
+   FORM ANIMATION
+========================================= */
+
+@keyframes formGradient {
+
+    0% {
+
+        background-position: 0% 50%;
+
+    }
+
+    50% {
+
+        background-position: 100% 50%;
+
+    }
+
+    100% {
+
+        background-position: 0% 50%;
+
+    }
+
+}
+
+
+@keyframes formAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.container h2 {
+
+    text-align: center;
+
+    color: white;
+
+    margin-bottom: 25px;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    text-shadow:
+        0 2px 6px rgba(0,0,0,0.35);
+
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-weight: 600;
+
+    color: white;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,0.25);
+
+}
+
+
+/* =========================================
+   INPUT
+========================================= */
+
+input,
+textarea {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border:
+        2px solid rgba(255,255,255,0.8);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    margin-bottom: 18px;
+
+    font-size: 15px;
+
+    background:
+        rgba(255,255,255,0.94);
+
+    color: #333;
+
+    transition: 0.3s;
+
+}
+
+
+input:focus,
+textarea:focus {
+
+    border-color: white;
+
+    background: white;
+
+    box-shadow:
+        0 0 10px rgba(255,255,255,0.8);
+
+}
+
+
+textarea {
+
+    resize: none;
+
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.buttons {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+}
+
+
+.buttons input {
+
+    flex: 1;
+
+    border: none;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================
+   BOOK NOW BUTTON
+========================================= */
+
+.buttons input[type="submit"] {
+
+    background: #0d6efd;
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,0.25);
+
+}
+
+
+.buttons input[type="submit"]:hover {
+
+    background: #084298;
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================
+   CLEAR BUTTON
+========================================= */
+
+.buttons input[type="reset"] {
+
+    background: #dc3545;
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,0.25);
+
+}
+
+
+.buttons input[type="reset"]:hover {
+
+    background: #b02a37;
+
+    transform: translateY(-3px);
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    header {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 15px;
+
+    }
+
+
+    .logo {
+
+        font-size: 24px;
+
+    }
+
+
+    nav ul {
+
+        gap: 13px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+
+    nav ul li a {
+
+        font-size: 13px;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .main {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .container {
+
+        padding: 25px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .container h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .buttons input {
+
+        width: 100%;
+
+        padding: 12px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+
+    <div class="logo">
+
+        RentHouse
+
+    </div>
+
+
+    <nav>
+
+        <ul>
+
+
+            <li>
+
+                <a href="dashboard.php">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="properties.php">
+
+                    Properties
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="about.html">
+
+                    About
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="contact.html">
+
+                    Contact
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </nav>
+
+
+</header>
+
+
+
+<!-- =========================================
+     MAIN CONTENT
+========================================= -->
+
+<main class="main">
+
+
+    <div class="container">
+
+
+        <h2>
+
+            Online Rent House Finder
+
+        </h2>
+
+
+
+        <!-- =================================
+             BOOKING FORM
+        ================================== -->
+
+        <form
+            action="booking.php"
+            method="POST"
+        >
+
+
+            <!-- FULL NAME -->
+
+            <label>
+
+                Full Name
+
+            </label>
+
+
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter your full name"
+                required
+            >
+
+
+
+            <!-- PHONE -->
+
+            <label>
+
+                Phone Number
+
+            </label>
+
+
+            <input
+                type="tel"
+                name="phone"
+                placeholder="Enter your phone number"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                required
+            >
+
+
+
+            <!-- EMAIL -->
+
+            <label>
+
+                Email
+
+            </label>
+
+
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+            >
+
+
+
+            <!-- HOUSE ID -->
+
+            <label>
+
+                House ID
+
+            </label>
+
+
+            <input
+                type="number"
+                name="houseid"
+                placeholder="Enter House ID"
+                min="1"
+                required
+            >
+
+
+
+            <!-- BOOKING DATE -->
+
+            <label>
+
+                Booking Date
+
+            </label>
+
+
+            <input
+                type="date"
+                name="date"
+                required
+            >
+
+
+
+            <!-- RENTAL DURATION -->
+
+            <label>
+
+                Rental Duration (Months)
+
+            </label>
+
+
+            <input
+                type="number"
+                name="months"
+                min="1"
+                placeholder="Enter number of months"
+                required
+            >
+
+
+
+            <!-- ADDRESS -->
+
+            <label>
+
+                Address
+
+            </label>
+
+
+            <textarea
+                name="address"
+                rows="4"
+                placeholder="Enter your address"
+                required
+            ></textarea>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="buttons">
+
+
+                <input
+                    type="submit"
+                    value="Book Now"
+                >
+
+
+                <input
+                    type="reset"
+                    value="Clear"
+                >
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+</main>
+
+
+</body>
+
+</html>
+
+php
+
+
+<?php
+
+include "db.php";
+
+
+/* =========================================
+   CHECK DATABASE CONNECTION
+========================================= */
+
+if (!$conn) {
+
+    die(
+        "Database connection failed: "
+        . mysqli_connect_error()
+    );
+
+}
+
+
+/* =========================================
+   CHECK POST REQUEST
+========================================= */
+
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+
+    header("Location: booking.html");
+
+    exit();
+
+}
+
+
+/* =========================================
+   GET FORM VALUES
+========================================= */
+
+$name = trim(
+    $_POST["name"] ?? ""
+);
+
+$phone = trim(
+    $_POST["phone"] ?? ""
+);
+
+$email = trim(
+    $_POST["email"] ?? ""
+);
+
+$houseid = (int)(
+    $_POST["houseid"] ?? 0
+);
+
+$date = $_POST["date"] ?? "";
+
+$months = (int)(
+    $_POST["months"] ?? 0
+);
+
+$address = trim(
+    $_POST["address"] ?? ""
+);
+
+
+/* =========================================
+   VALIDATE FORM
+========================================= */
+
+if (
+    empty($name) ||
+    empty($phone) ||
+    empty($email) ||
+    $houseid <= 0 ||
+    empty($date) ||
+    $months <= 0 ||
+    empty($address)
+) {
+
+    echo "<script>
+
+        alert(
+            'Please fill all required fields.'
+        );
+
+        window.history.back();
+
+    </script>";
+
+    exit();
+
+}
+
+
+/* =========================================
+   VALIDATE PHONE
+========================================= */
+
+if (!preg_match(
+    "/^[0-9]{10}$/",
+    $phone
+)) {
+
+    echo "<script>
+
+        alert(
+            'Please enter a valid 10-digit phone number.'
+        );
+
+        window.history.back();
+
+    </script>";
+
+    exit();
+
+}
+
+
+/* =========================================
+   VALIDATE EMAIL
+========================================= */
+
+if (!filter_var(
+    $email,
+    FILTER_VALIDATE_EMAIL
+)) {
+
+    echo "<script>
+
+        alert(
+            'Please enter a valid email address.'
+        );
+
+        window.history.back();
+
+    </script>";
+
+    exit();
+
+}
+
+
+/* =========================================
+   CHECK HOUSE FROM ADDHOUSE TABLE
+=========================================
+
+   Your addhouse table contains:
+
+   id
+   title
+   location
+   price
+   bedrooms
+   description
+   owner_name
+   owner_phone
+   latitude
+   longitude
+   gps_address
+   gps_accuracy
+   property_photo
+   created_at
+
+   It does NOT contain:
+
+   house_type
+   status
+
+========================================= */
+
+
+$house_sql = "
+
+    SELECT
+
+        id,
+        title
+
+    FROM addhouse
+
+    WHERE id = ?
+
+";
+
+
+$house_stmt = mysqli_prepare(
+    $conn,
+    $house_sql
+);
+
+
+if (!$house_stmt) {
+
+    die(
+        "House query preparation failed: "
+        . mysqli_error($conn)
+    );
+
+}
+
+
+mysqli_stmt_bind_param(
+    $house_stmt,
+    "i",
+    $houseid
+);
+
+
+mysqli_stmt_execute(
+    $house_stmt
+);
+
+
+$house_result = mysqli_stmt_get_result(
+    $house_stmt
+);
+
+
+/* =========================================
+   CHECK HOUSE EXISTS
+========================================= */
+
+if (
+    mysqli_num_rows($house_result) == 0
+) {
+
+    echo "<script>
+
+        alert(
+            'Invalid House ID! Please enter a valid House ID.'
+        );
+
+        window.history.back();
+
+    </script>";
+
+    mysqli_stmt_close(
+        $house_stmt
+    );
+
+    exit();
+
+}
+
+
+/* =========================================
+   GET HOUSE DATA
+========================================= */
+
+$house_data = mysqli_fetch_assoc(
+    $house_result
+);
+
+
+$house_title = $house_data["title"];
+
+
+/* =========================================
+   IDENTIFY HOUSE TYPE
+   FROM TITLE
+========================================= */
+
+if (
+    stripos(
+        $house_title,
+        "Independent House"
+    ) === 0
+) {
+
+    $house_type =
+        "Independent House";
+
+}
+
+elseif (
+    stripos(
+        $house_title,
+        "Apartment"
+    ) === 0
+) {
+
+    $house_type =
+        "Apartment";
+
+}
+
+elseif (
+    stripos(
+        $house_title,
+        "Villa"
+    ) === 0
+) {
+
+    $house_type =
+        "Villa";
+
+}
+
+elseif (
+    stripos(
+        $house_title,
+        "Duplex House"
+    ) === 0
+) {
+
+    $house_type =
+        "Duplex House";
+
+}
+
+elseif (
+    stripos(
+        $house_title,
+        "Single Family House"
+    ) === 0
+) {
+
+    $house_type =
+        "Single Family House";
+
+}
+
+else {
+
+    $house_type =
+        "House";
+
+}
+
+
+mysqli_stmt_close(
+    $house_stmt
+);
+
+
+/* =========================================
+   INSERT BOOKING
+========================================= */
+
+$sql = "
+
+    INSERT INTO bookings
+
+    (
+        full_name,
+        phone,
+        email,
+        house_id,
+        house_type,
+        booking_date,
+        rental_duration,
+        address,
+        booking_status
+    )
+
+    VALUES
+
+    (
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        'Pending'
+    )
+
+";
+
+
+$stmt = mysqli_prepare(
+    $conn,
+    $sql
+);
+
+
+if (!$stmt) {
+
+    die(
+        "SQL preparation failed: "
+        . mysqli_error($conn)
+    );
+
+}
+
+
+/* =========================================
+   BIND BOOKING VALUES
+========================================= */
+
+mysqli_stmt_bind_param(
+
+    $stmt,
+
+    "sssissis",
+
+    $name,
+
+    $phone,
+
+    $email,
+
+    $houseid,
+
+    $house_type,
+
+    $date,
+
+    $months,
+
+    $address
+
+);
+
+
+/* =========================================
+   INSERT BOOKING
+========================================= */
+
+if (
+    mysqli_stmt_execute($stmt)
+) {
+
+    echo "<script>
+
+        alert(
+            'Booking submitted successfully!'
+        );
+
+        window.location.href =
+            'properties.php';
+
+    </script>";
+
+}
+
+else {
+
+    echo "<script>
+
+        alert(
+            'Booking failed. Please try again.'
+        );
+
+        window.history.back();
+
+    </script>";
+
+}
+
+
+/* =========================================
+   CLOSE DATABASE
+========================================= */
+
+mysqli_stmt_close(
+    $stmt
+);
+
+
+mysqli_close(
+    $conn
+);
+
+?>
+
+table
+
+CREATE TABLE `bookings` (
+  `booking_id` int(11) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `house_id` int(11) NOT NULL,
+  `house_type` varchar(100) NOT NULL,
+  `booking_date` date NOT NULL,
+  `rental_duration` int(11) NOT NULL,
+  `address` text NOT NULL,
+  `booking_status` varchar(20) NOT NULL DEFAULT 'Pending'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`booking_id`, `full_name`, `phone`, `email`, `house_id`, `house_type`, `booking_date`, `rental_duration`, `address`, `booking_status`) VALUES
+(1, 'Vijay', '9876123450', 'vijay@gmail.com', 1, 'Independent House', '2026-10-01', 12, 'Bapatla', 'Pending'),
+(2, 'Naveen', '9988123456', 'naveen@gmail.com', 2, 'Independent House', '2026-10-03', 6, 'Bapatla', 'Pending'),
+(3, 'Pooja', '9876456123', 'pooja@gmail.com', 3, 'Independent House', '2026-10-05', 12, 'Bapatla', 'Approved'),
+(4, 'Swathi', '9345126789', 'swathi@gmail.com', 4, 'Independent House', '2026-10-07', 8, 'Bapatla', 'Pending'),
+(5, 'Kavya', '9765123480', 'kavya@gmail.com', 5, 'Independent House', '2026-10-10', 12, 'Bapatla', 'Approved'),
+(6, 'Harika', '9543678120', 'harika@gmail.com', 6, 'Independent House', '2026-10-12', 6, 'Bapatla', 'Pending'),
+(7, 'Prakash', '9876234510', 'prakash@gmail.com', 7, 'Independent House', '2026-10-15', 12, 'Bapatla', 'Pending'),
+(8, 'Venkat', '9987654321', 'venkat@gmail.com', 8, 'Independent House', '2026-10-18', 6, 'Bapatla', 'Approved'),
+(9, 'Keerthi', '9876543120', 'keerthi@gmail.com', 9, 'Independent House', '2026-10-20', 10, 'Bapatla', 'Pending'),
+(10, 'Bhavya', '9345781260', 'bhavya@gmail.com', 10, 'Independent House', '2026-10-22', 12, 'Bapatla', 'Pending'),
+(11, 'rohit', '8899654321', 'rohit@gmail.com', 17, 'Apartment', '2026-10-01', 7, 'bapatla clock tower', 'Pending');
+
+

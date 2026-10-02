@@ -1,0 +1,2713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RentHouse - Add House</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+/* =========================
+   BODY + BACKGROUND
+========================= */
+
+body{
+
+    min-height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.55)
+    ),
+    url("https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1500&q=80");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+
+    background:#0d6efd;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 8%;
+
+}
+
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+
+nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+}
+
+
+nav ul li{
+
+    margin-left:25px;
+
+}
+
+
+nav ul li a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:500;
+
+}
+
+
+nav ul li a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =========================
+   MAIN AREA
+========================= */
+
+.main-area{
+
+    min-height:calc(100vh - 80px);
+
+    padding:40px 10%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+}
+
+
+/* =========================
+   MAIN WHITE CARD
+========================= */
+
+.container{
+
+    width:100%;
+
+    max-width:620px;
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.25);
+
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.container h1{
+
+    color:#333;
+
+    text-align:center;
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+
+.subtitle{
+
+    text-align:center;
+
+    color:#777;
+
+    font-size:13px;
+
+    margin-bottom:25px;
+
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title{
+
+    color:#0d6efd;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-group{
+
+    margin-bottom:15px;
+
+}
+
+
+.form-group input{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:5px;
+
+    font-size:14px;
+
+    outline:none;
+
+}
+
+
+.form-group input:focus{
+
+    border-color:#0d6efd;
+
+    box-shadow:
+        0 0 4px rgba(13,110,253,.15);
+
+}
+
+
+/* =========================
+   OWNER
+========================= */
+
+.owner-note{
+
+    color:#666;
+
+    font-size:12px;
+
+    margin-bottom:15px;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================
+   GPS SECTION
+========================= */
+
+.gps-section{
+
+    background:#f5f9ff;
+
+    border:1px solid #0d6efd;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    margin:20px 0;
+
+}
+
+
+.gps-section h3{
+
+    color:#0d6efd;
+
+    font-size:17px;
+
+    margin-bottom:8px;
+
+}
+
+
+.gps-note{
+
+    color:#666;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    margin-bottom:15px;
+
+}
+
+
+.location-btn{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#0d6efd;
+
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.location-btn:hover{
+
+    background:#0b5ed7;
+
+}
+
+
+.location-btn:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+
+#locationInfo{
+
+    margin-top:12px;
+
+    color:#333;
+
+    font-size:11px;
+
+    line-height:1.7;
+
+}
+
+
+.map-btn{
+
+    display:none;
+
+    margin-top:10px;
+
+    padding:8px 12px;
+
+    background:#28a745;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:5px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+}
+
+
+/* =========================
+   CAMERA SECTION
+========================= */
+
+.camera-section{
+
+    background:#fffaf0;
+
+    border:1px solid #f0ad4e;
+
+    padding:20px;
+
+    border-radius:10px;
+
+    margin:20px 0;
+
+}
+
+
+.camera-section h3{
+
+    color:#d68910;
+
+    font-size:17px;
+
+    margin-bottom:8px;
+
+}
+
+
+.camera-note{
+
+    color:#666;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    margin-bottom:15px;
+
+}
+
+
+.camera-btn{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#6f42c1;
+
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.camera-btn:hover{
+
+    background:#5a32a3;
+
+}
+
+
+.camera-btn:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =========================
+   CAMERA
+========================= */
+
+#cameraArea{
+
+    display:none;
+
+    margin-top:15px;
+
+    text-align:center;
+
+}
+
+
+#camera{
+
+    width:100%;
+
+    max-width:560px;
+
+    background:#111;
+
+    border-radius:8px;
+
+    border:2px solid #6f42c1;
+
+}
+
+
+.capture-btn{
+
+    margin-top:12px;
+
+    padding:10px 18px;
+
+    background:#dc3545;
+
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.capture-btn:hover{
+
+    background:#bb2d3b;
+
+}
+
+
+/* =========================
+   PHOTO PREVIEW
+========================= */
+
+#photoPreview{
+
+    display:none;
+
+    width:100%;
+
+    max-width:560px;
+
+    margin:15px auto;
+
+    border-radius:8px;
+
+    border:2px solid #28a745;
+
+}
+
+
+/* =========================
+   VERIFIED BADGE
+========================= */
+
+#verifiedMessage{
+
+    display:none;
+
+    text-align:center;
+
+    margin:10px 0;
+
+}
+
+
+.badge-row{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+.badge{
+
+    padding:7px 12px;
+
+    border-radius:5px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+}
+
+
+.badge-gps{
+
+    background:#d1e7dd;
+
+    color:#0f5132;
+
+    border:1px solid #badbcc;
+
+}
+
+
+/* =========================
+   RETAKE
+========================= */
+
+.retake-btn{
+
+    display:none;
+
+    margin:10px auto;
+
+    padding:8px 14px;
+
+    background:#6c757d;
+
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message{
+
+    display:none;
+
+    padding:10px;
+
+    margin-bottom:15px;
+
+    border-radius:5px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+
+.success{
+
+    display:block;
+
+    background:#d1e7dd;
+
+    color:#0f5132;
+
+    border:1px solid #badbcc;
+
+}
+
+
+.error{
+
+    display:block;
+
+    background:#f8d7da;
+
+    color:#842029;
+
+    border:1px solid #f5c2c7;
+
+}
+
+
+/* =========================
+   SUBMIT
+========================= */
+
+.submit-btn{
+
+    width:100%;
+
+    padding:12px;
+
+    background:#28a745;
+
+    color:white;
+
+    border:none;
+
+    border-radius:5px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+.submit-btn:hover{
+
+    background:#218838;
+
+}
+
+
+.submit-btn:disabled{
+
+    opacity:.6;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    header{
+
+        padding:15px 5%;
+
+        flex-direction:column;
+
+        gap:12px;
+
+    }
+
+
+    .logo{
+
+        font-size:25px;
+
+    }
+
+
+    nav ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+
+    nav ul li{
+
+        margin-left:10px;
+
+        margin-right:10px;
+
+    }
+
+
+    nav ul li a{
+
+        font-size:13px;
+
+    }
+
+
+    .main-area{
+
+        padding:25px 5%;
+
+    }
+
+
+    .container{
+
+        padding:22px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="logo">
+
+    RentHouse
+
+</div>
+
+
+<nav>
+
+<ul>
+
+<li>
+<a href="dashboard.html">
+    Home
+</a>
+</li>
+
+<li>
+<a href="properties.html">
+    Properties
+</a>
+</li>
+
+<li>
+<a href="about.html">
+    About
+</a>
+</li>
+
+<li>
+<a href="contact.html">
+    Contact
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<div class="main-area">
+
+
+<div class="container">
+
+
+<h1>
+
+    🏠 Property Details
+
+</h1>
+
+
+<p class="subtitle">
+
+    Add your house details with verified GPS location and live photo.
+
+</p>
+
+
+<div
+id="message"
+class="message"
+></div>
+
+
+
+<form id="propertyForm">
+
+
+<!-- PROPERTY DETAILS -->
+
+<div class="section-title">
+
+    🏠 Property Details
+
+</div>
+
+
+<div class="form-group">
+
+<input
+type="text"
+id="houseTitle"
+name="houseTitle"
+placeholder="House Title"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<input
+type="text"
+id="houseLocation"
+name="houseLocation"
+placeholder="Location / Area"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<input
+type="number"
+id="housePrice"
+name="housePrice"
+placeholder="Monthly Rent (₹)"
+min="1"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<input
+type="number"
+id="bedrooms"
+name="bedrooms"
+placeholder="Number of Bedrooms"
+min="1"
+required
+>
+
+</div>
+
+
+
+<!-- OWNER DETAILS -->
+
+<div class="section-title">
+
+    👤 Owner Details
+
+</div>
+
+
+<div class="owner-note">
+
+    🔐 Owner details are collected for
+    property contact and verification purposes.
+
+</div>
+
+
+<div class="form-group">
+
+<input
+type="text"
+id="ownerName"
+name="ownerName"
+placeholder="Owner Full Name"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<input
+type="tel"
+id="ownerPhone"
+name="ownerPhone"
+placeholder="Owner Contact Number"
+pattern="[0-9]{10}"
+maxlength="10"
+required
+>
+
+</div>
+
+
+
+<!-- GPS -->
+
+<div class="gps-section">
+
+
+<h3>
+
+    📍 Live Location Verification
+
+</h3>
+
+
+<div class="gps-note">
+
+    GPS is captured from the device's current location.
+    The GPS is refreshed when the live photo is captured.
+
+</div>
+
+
+<button
+type="button"
+id="locationBtn"
+class="location-btn"
+onclick="getLiveLocation()"
+>
+
+    📍 Get My Current Location
+
+</button>
+
+
+<div id="locationInfo">
+
+    GPS location not verified yet.
+
+</div>
+
+
+<a
+id="mapBtn"
+class="map-btn"
+href="#"
+target="_blank"
+>
+
+    🗺️ Open Location in Map
+
+</a>
+
+
+</div>
+
+
+
+<!-- CAMERA -->
+
+<div class="camera-section">
+
+
+<h3>
+
+    📷 Live Property Photo
+
+</h3>
+
+
+<div class="camera-note">
+
+    🔒 Gallery upload is not available for the property
+    photo.
+
+    <br><br>
+
+    The property image must be captured through the
+    device camera.
+
+</div>
+
+
+<button
+type="button"
+id="cameraBtn"
+class="camera-btn"
+onclick="openCamera()"
+>
+
+    📷 Take Live Photo
+
+</button>
+
+
+<div class="camera-note" style="margin-top:10px;">
+
+    On a mobile device, the browser will prefer the
+    rear camera when available.
+
+</div>
+
+
+<div id="cameraArea">
+
+
+<video
+id="camera"
+autoplay
+playsinline
+muted
+></video>
+
+
+<br>
+
+
+<button
+type="button"
+class="capture-btn"
+onclick="capturePhoto()"
+>
+
+    📸 Capture Live Photo
+
+</button>
+
+
+</div>
+
+
+<canvas
+id="canvas"
+style="display:none;"
+></canvas>
+
+
+<img
+id="photoPreview"
+alt="GPS Verified Property Photo"
+>
+
+
+<div id="verifiedMessage">
+
+
+<div class="badge-row">
+
+<span class="badge badge-gps">
+
+    ✓ GPS VERIFIED
+
+</span>
+
+</div>
+
+
+</div>
+
+
+<button
+type="button"
+id="retakeBtn"
+class="retake-btn"
+onclick="retakePhoto()"
+>
+
+    🔄 Retake Live Photo
+
+</button>
+
+
+</div>
+
+
+
+<!-- SUBMIT -->
+
+<button
+type="submit"
+id="submitButton"
+class="submit-btn"
+>
+
+    🏠 Add House
+
+</button>
+
+
+</form>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   VARIABLES
+========================= */
+
+let currentLatitude = null;
+
+let currentLongitude = null;
+
+let currentAddress = "";
+
+let currentAccuracy = null;
+
+let cameraStream = null;
+
+let capturedPhotoBlob = null;
+
+
+
+/* =========================
+   ELEMENTS
+========================= */
+
+const camera =
+document.getElementById("camera");
+
+const cameraArea =
+document.getElementById("cameraArea");
+
+const cameraBtn =
+document.getElementById("cameraBtn");
+
+const locationBtn =
+document.getElementById("locationBtn");
+
+const locationInfo =
+document.getElementById("locationInfo");
+
+const mapBtn =
+document.getElementById("mapBtn");
+
+const canvas =
+document.getElementById("canvas");
+
+const photoPreview =
+document.getElementById("photoPreview");
+
+const retakeBtn =
+document.getElementById("retakeBtn");
+
+const verifiedMessage =
+document.getElementById("verifiedMessage");
+
+const message =
+document.getElementById("message");
+
+const propertyForm =
+document.getElementById("propertyForm");
+
+const submitButton =
+document.getElementById("submitButton");
+
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+function showMessage(text,type){
+
+message.className =
+"message " + type;
+
+message.innerHTML =
+text;
+
+message.style.display =
+"block";
+
+}
+
+
+
+/* =========================
+   GPS LOCATION
+========================= */
+
+function getLiveLocation(){
+
+if(!navigator.geolocation){
+
+showMessage(
+"❌ GPS is not supported by this browser.",
+"error"
+);
+
+return;
+
+}
+
+
+locationBtn.disabled =
+true;
+
+locationBtn.innerText =
+"📍 Getting Location...";
+
+
+locationInfo.innerHTML =
+"⏳ Getting your current GPS location...";
+
+
+navigator.geolocation.getCurrentPosition(
+
+async function(position){
+
+currentLatitude =
+position.coords.latitude;
+
+currentLongitude =
+position.coords.longitude;
+
+currentAccuracy =
+position.coords.accuracy;
+
+
+locationInfo.innerHTML =
+"⏳ GPS received. Getting address...";
+
+
+try{
+
+const response =
+await fetch(
+
+"https://nominatim.openstreetmap.org/reverse" +
+
+"?format=jsonv2" +
+
+"&lat=" +
+currentLatitude +
+
+"&lon=" +
+currentLongitude +
+
+"&zoom=18" +
+
+"&addressdetails=1"
+
+);
+
+
+const data =
+await response.json();
+
+
+currentAddress =
+data.display_name ||
+"Address not available";
+
+}
+
+catch(error){
+
+console.error(error);
+
+currentAddress =
+"GPS location captured";
+
+}
+
+
+locationInfo.innerHTML =
+
+"<strong>✅ GPS VERIFIED</strong><br>" +
+
+"📍 Address: " +
+currentAddress +
+
+"<br>" +
+
+"🌐 Latitude: " +
+currentLatitude.toFixed(8) +
+
+"<br>" +
+
+"🌐 Longitude: " +
+currentLongitude.toFixed(8) +
+
+"<br>" +
+
+"🎯 Accuracy: " +
+currentAccuracy.toFixed(2) +
+" meters";
+
+
+mapBtn.href =
+"https://www.google.com/maps?q=" +
+currentLatitude +
+"," +
+currentLongitude;
+
+
+mapBtn.style.display =
+"inline-block";
+
+
+locationBtn.disabled =
+false;
+
+
+locationBtn.innerText =
+"✅ Location Verified";
+
+
+showMessage(
+"✅ Current GPS location verified successfully.",
+"success"
+);
+
+},
+
+
+function(error){
+
+console.error(
+"GPS Error:",
+error
+);
+
+
+currentLatitude =
+null;
+
+currentLongitude =
+null;
+
+
+locationBtn.disabled =
+false;
+
+
+locationBtn.innerText =
+"📍 Get My Current Location";
+
+
+if(error.code === 1){
+
+showMessage(
+"❌ Location permission denied. Please allow GPS permission.",
+"error"
+);
+
+}
+
+else if(error.code === 2){
+
+showMessage(
+"❌ GPS location unavailable.",
+"error"
+);
+
+}
+
+else if(error.code === 3){
+
+showMessage(
+"❌ GPS request timed out. Try again.",
+"error"
+);
+
+}
+
+else{
+
+showMessage(
+"❌ Unable to get GPS location.",
+"error"
+);
+
+}
+
+},
+
+
+{
+
+enableHighAccuracy:true,
+
+timeout:20000,
+
+maximumAge:0
+
+}
+
+);
+
+}
+
+
+
+/* =========================
+   CAMERA
+========================= */
+
+async function openCamera(){
+
+if(
+currentLatitude === null ||
+currentLongitude === null
+){
+
+showMessage(
+"📍 Please get your current location first.",
+"error"
+);
+
+return;
+
+}
+
+
+if(
+!navigator.mediaDevices ||
+!navigator.mediaDevices.getUserMedia
+){
+
+showMessage(
+"❌ Camera is unavailable. Use Chrome on localhost or HTTPS.",
+"error"
+);
+
+return;
+
+}
+
+
+if(window.location.protocol === "file:"){
+
+showMessage(
+"❌ Camera requires localhost or HTTPS.",
+"error"
+);
+
+return;
+
+}
+
+
+stopCamera();
+
+
+cameraBtn.disabled =
+true;
+
+cameraBtn.innerText =
+"📷 Opening Camera...";
+
+
+try{
+
+const stream =
+await navigator.mediaDevices.getUserMedia({
+
+video:{
+
+facingMode:{
+ideal:"environment"
+},
+
+width:{
+ideal:1280
+},
+
+height:{
+ideal:720
+}
+
+},
+
+audio:false
+
+});
+
+
+cameraStream =
+stream;
+
+
+camera.srcObject =
+stream;
+
+
+cameraArea.style.display =
+"block";
+
+
+await camera.play();
+
+
+cameraBtn.disabled =
+false;
+
+cameraBtn.innerText =
+"📷 Camera Ready";
+
+
+showMessage(
+"📷 Camera opened. Capture the property photo.",
+"success"
+);
+
+}
+
+
+catch(error){
+
+console.error(
+"Camera Error:",
+error
+);
+
+
+stopCamera();
+
+
+cameraArea.style.display =
+"none";
+
+
+cameraBtn.disabled =
+false;
+
+
+cameraBtn.innerText =
+"📷 Take Live Photo";
+
+
+if(error.name === "NotAllowedError"){
+
+showMessage(
+"❌ Camera permission denied. Please allow camera permission.",
+"error"
+);
+
+}
+
+else if(error.name === "NotFoundError"){
+
+showMessage(
+"❌ No camera found on this device.",
+"error"
+);
+
+}
+
+else if(error.name === "NotReadableError"){
+
+showMessage(
+"❌ Camera is being used by another application.",
+"error"
+);
+
+}
+
+else{
+
+showMessage(
+"❌ Camera could not be opened.",
+"error"
+);
+
+}
+
+}
+
+}
+
+
+
+/* =========================
+   CAPTURE PHOTO
+========================= */
+
+function capturePhoto(){
+
+if(!cameraStream){
+
+showMessage(
+"❌ Camera is not active.",
+"error"
+);
+
+return;
+
+}
+
+
+if(
+!camera.videoWidth ||
+!camera.videoHeight
+){
+
+showMessage(
+"❌ Camera is not ready yet.",
+"error"
+);
+
+return;
+
+}
+
+
+canvas.width =
+camera.videoWidth;
+
+canvas.height =
+camera.videoHeight;
+
+
+const ctx =
+canvas.getContext("2d");
+
+
+ctx.drawImage(
+camera,
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+
+const width =
+canvas.width;
+
+const height =
+canvas.height;
+
+
+const boxHeight =
+Math.min(
+180,
+Math.max(
+145,
+height * 0.20
+)
+);
+
+
+ctx.fillStyle =
+"rgba(0,0,0,0.78)";
+
+
+ctx.fillRect(
+0,
+height - boxHeight,
+width,
+boxHeight
+);
+
+
+ctx.fillStyle =
+"#00ff66";
+
+
+ctx.font =
+"bold 24px Arial";
+
+
+ctx.fillText(
+"GPS VERIFIED PROPERTY",
+20,
+height - boxHeight + 32
+);
+
+
+ctx.fillStyle =
+"#ffffff";
+
+
+ctx.font =
+"16px Arial";
+
+
+let addressText =
+currentAddress ||
+"GPS location verified";
+
+
+if(addressText.length > 70){
+
+addressText =
+addressText.substring(
+0,
+67
+) +
+"...";
+
+}
+
+
+ctx.fillText(
+"Address: " +
+addressText,
+20,
+height - boxHeight + 60
+);
+
+
+ctx.fillText(
+"Lat: " +
+currentLatitude.toFixed(8),
+20,
+height - boxHeight + 88
+);
+
+
+ctx.fillText(
+"Long: " +
+currentLongitude.toFixed(8),
+20,
+height - boxHeight + 116
+);
+
+
+ctx.fillText(
+"GPS Accuracy: " +
+currentAccuracy.toFixed(2) +
+" meters",
+20,
+height - boxHeight + 144
+);
+
+
+ctx.fillStyle =
+"#dddddd";
+
+
+ctx.font =
+"13px Arial";
+
+
+ctx.fillText(
+new Date().toLocaleString(),
+20,
+height - 8
+);
+
+
+
+canvas.toBlob(
+
+function(blob){
+
+if(!blob){
+
+showMessage(
+"❌ Failed to create property photo.",
+"error"
+);
+
+return;
+
+}
+
+
+capturedPhotoBlob =
+blob;
+
+
+photoPreview.src =
+URL.createObjectURL(blob);
+
+
+photoPreview.style.display =
+"block";
+
+
+verifiedMessage.style.display =
+"block";
+
+
+retakeBtn.style.display =
+"block";
+
+
+stopCamera();
+
+
+cameraArea.style.display =
+"none";
+
+
+cameraBtn.disabled =
+false;
+
+
+cameraBtn.innerText =
+"📷 Retake Live Photo";
+
+
+showMessage(
+"✅ GPS verified live property photo captured successfully.",
+"success"
+);
+
+},
+
+"image/jpeg",
+
+0.92
+
+);
+
+}
+
+
+
+/* =========================
+   RETAKE PHOTO
+========================= */
+
+function retakePhoto(){
+
+capturedPhotoBlob =
+null;
+
+
+photoPreview.src =
+"";
+
+
+photoPreview.style.display =
+"none";
+
+
+verifiedMessage.style.display =
+"none";
+
+
+retakeBtn.style.display =
+"none";
+
+
+openCamera();
+
+}
+
+
+
+/* =========================
+   STOP CAMERA
+========================= */
+
+function stopCamera(){
+
+if(cameraStream){
+
+cameraStream
+.getTracks()
+.forEach(function(track){
+
+track.stop();
+
+});
+
+
+cameraStream =
+null;
+
+}
+
+
+if(camera){
+
+camera.srcObject =
+null;
+
+}
+
+}
+
+
+
+/* =========================
+   SUBMIT HOUSE
+========================= */
+
+propertyForm.addEventListener(
+"submit",
+async function(event){
+
+event.preventDefault();
+
+
+if(
+currentLatitude === null ||
+currentLongitude === null
+){
+
+showMessage(
+"📍 Please verify GPS location before adding the house.",
+"error"
+);
+
+return;
+
+}
+
+
+if(!capturedPhotoBlob){
+
+showMessage(
+"📷 Please capture a live property photo before adding the house.",
+"error"
+);
+
+return;
+
+}
+
+
+submitButton.disabled =
+true;
+
+
+submitButton.innerText =
+"⏳ Adding House...";
+
+
+try{
+
+const formData =
+new FormData();
+
+
+formData.append(
+"title",
+document
+.getElementById("houseTitle")
+.value
+.trim()
+);
+
+
+formData.append(
+"location",
+document
+.getElementById("houseLocation")
+.value
+.trim()
+);
+
+
+formData.append(
+"price",
+document
+.getElementById("housePrice")
+.value
+);
+
+
+formData.append(
+"bedrooms",
+document
+.getElementById("bedrooms")
+.value
+);
+
+
+formData.append(
+"owner_name",
+document
+.getElementById("ownerName")
+.value
+.trim()
+);
+
+
+formData.append(
+"owner_phone",
+document
+.getElementById("ownerPhone")
+.value
+.trim()
+);
+
+
+formData.append(
+"latitude",
+currentLatitude
+);
+
+
+formData.append(
+"longitude",
+currentLongitude
+);
+
+
+formData.append(
+"gps_address",
+currentAddress
+);
+
+
+formData.append(
+"gps_accuracy",
+currentAccuracy
+);
+
+
+formData.append(
+"property_photo",
+capturedPhotoBlob,
+"property_" +
+Date.now() +
+".jpg"
+);
+
+
+const response =
+await fetch(
+"addhouse.php",
+{
+method:"POST",
+body:formData
+}
+);
+
+
+const responseText =
+await response.text();
+
+
+console.log(
+"Server Response:",
+responseText
+);
+
+
+let result;
+
+
+try{
+
+result =
+JSON.parse(
+responseText
+);
+
+}
+
+catch(jsonError){
+
+showMessage(
+
+"❌ Server response is invalid.<br><br>" +
+
+"<small>" +
+responseText.substring(
+0,
+500
+) +
+"</small>",
+
+"error"
+
+);
+
+
+submitButton.disabled =
+false;
+
+
+submitButton.innerText =
+"🏠 Add House";
+
+
+return;
+
+}
+
+
+if(result.success){
+
+showMessage(
+"✅ House added successfully!",
+"success"
+);
+
+
+submitButton.innerText =
+"✅ House Added";
+
+
+setTimeout(
+function(){
+
+window.location.href =
+"properties.php";
+
+},
+2000
+);
+
+}
+
+
+else{
+
+showMessage(
+
+"❌ " +
+(
+result.message ||
+"Failed to add house."
+),
+
+"error"
+
+);
+
+
+submitButton.disabled =
+false;
+
+
+submitButton.innerText =
+"🏠 Add House";
+
+}
+
+}
+
+
+catch(error){
+
+console.error(
+"Submit Error:",
+error
+);
+
+
+showMessage(
+
+"❌ Unable to connect to server. " +
+"Make sure XAMPP Apache and MySQL are running.",
+
+"error"
+
+);
+
+
+submitButton.disabled =
+false;
+
+
+submitButton.innerText =
+"🏠 Add House";
+
+}
+
+}
+);
+
+
+
+/* =========================
+   STOP CAMERA ON EXIT
+========================= */
+
+window.addEventListener(
+"beforeunload",
+function(){
+
+stopCamera();
+
+}
+);
+
+</script>
+
+
+</body>
+
+</html>
+
+php 
+
+<?php
+
+header("Content-Type: application/json");
+
+include "db.php";
+
+
+/* =========================================
+   ONLY POST REQUEST ALLOWED
+========================================= */
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+
+    echo json_encode([
+        "success" => false,
+        "message" => "Invalid request method."
+    ]);
+
+    exit;
+}
+
+
+/* =========================================
+   GET FORM DATA
+========================================= */
+
+$title = trim($_POST["title"] ?? "");
+
+$location = trim($_POST["location"] ?? "");
+
+$price = $_POST["price"] ?? "";
+
+$bedrooms = $_POST["bedrooms"] ?? "";
+
+$owner_name = trim($_POST["owner_name"] ?? "");
+
+$owner_phone = trim($_POST["owner_phone"] ?? "");
+
+$latitude = $_POST["latitude"] ?? "";
+
+$longitude = $_POST["longitude"] ?? "";
+
+$gps_address = trim($_POST["gps_address"] ?? "");
+
+$gps_accuracy = $_POST["gps_accuracy"] ?? "";
+
+
+/*
+   Description is not currently coming
+   from your HTML form.
+
+   So we store an empty description.
+*/
+
+$description = "";
+
+
+/* =========================================
+   CHECK REQUIRED DATA
+========================================= */
+
+if (
+    $title === "" ||
+    $location === "" ||
+    $price === "" ||
+    $bedrooms === "" ||
+    $owner_name === "" ||
+    $owner_phone === ""
+) {
+
+    echo json_encode([
+        "success" => false,
+        "message" => "Please fill all required house and owner details."
+    ]);
+
+    exit;
+}
+
+
+/* =========================================
+   CHECK GPS
+========================================= */
+
+if (
+    $latitude === "" ||
+    $longitude === ""
+) {
+
+    echo json_encode([
+        "success" => false,
+        "message" => "GPS location is required."
+    ]);
+
+    exit;
+}
+
+
+/* =========================================
+   CHECK PHOTO
+========================================= */
+
+if (
+    !isset($_FILES["property_photo"]) ||
+    $_FILES["property_photo"]["error"] !== UPLOAD_ERR_OK
+) {
+
+    echo json_encode([
+        "success" => false,
+        "message" => "Property photo is required."
+    ]);
+
+    exit;
+}
+
+
+/* =========================================
+   UPLOAD FOLDER
+========================================= */
+
+$uploadDir = "uploads/";
+
+
+if (!is_dir($uploadDir)) {
+
+    if (!mkdir($uploadDir, 0777, true)) {
+
+        echo json_encode([
+            "success" => false,
+            "message" => "Failed to create uploads folder."
+        ]);
+
+        exit;
+    }
+}
+
+
+/* =========================================
+   CHECK PHOTO TYPE
+========================================= */
+
+$tmpFile = $_FILES["property_photo"]["tmp_name"];
+
+$fileInfo = getimagesize($tmpFile);
+
+if ($fileInfo === false) {
+
+    echo json_encode([
+        "success" => false,
+        "message" => "Uploaded file is not a valid image."
+    ]);
+
+    exit;
+}
+
+
+/* =========================================
+   PHOTO NAME
+========================================= */
+
+$fileName =
+    "property_" .
+    time() .
+    "_" .
+    rand(1000, 9999) .
+    ".jpg";
+
+
+$photoPath =
+    $uploadDir .
+    $fileName;
+
+
+/* =========================================
+   MOVE PHOTO
+========================================= */
+
+if (
+    !move_uploaded_file(
+        $_FILES["property_photo"]["tmp_name"],
+        $photoPath
+    )
+) {
+
+    echo json_encode([
+        "success" => false,
+        "message" => "Failed to upload property photo."
+    ]);
+
+    exit;
+}
+
+
+/* =========================================
+   DATABASE INSERT
+========================================= */
+
+/*
+   Database:
+   rent_house_finder
+
+   Table:
+   addhouse
+
+   Columns used:
+
+   title
+   location
+   price
+   bedrooms
+   description
+   owner_name
+   owner_phone
+   latitude
+   longitude
+   gps_address
+   gps_accuracy
+   property_photo
+*/
+
+
+$sql = "
+
+INSERT INTO addhouse
+
+(
+    title,
+    location,
+    price,
+    bedrooms,
+    description,
+    owner_name,
+    owner_phone,
+    latitude,
+    longitude,
+    gps_address,
+    gps_accuracy,
+    property_photo
+)
+
+VALUES
+
+(
+    ?,
+    ?,
+    ?,
+    ?,
+    ?,
+    ?,
+    ?,
+    ?,
+    ?,
+    ?,
+    ?,
+    ?
+)
+
+";
+
+
+/* =========================================
+   PREPARE SQL
+========================================= */
+
+$stmt = $conn->prepare($sql);
+
+
+if (!$stmt) {
+
+    /*
+       Remove uploaded photo
+       if SQL preparation fails.
+    */
+
+    if (file_exists($photoPath)) {
+
+        unlink($photoPath);
+    }
+
+
+    echo json_encode([
+        "success" => false,
+        "message" => "Database prepare error: " . $conn->error
+    ]);
+
+    exit;
+}
+
+
+/* =========================================
+   BIND DATA
+========================================= */
+
+/*
+   Types:
+
+   title          = s
+   location       = s
+   price          = d
+   bedrooms       = i
+   description    = s
+   owner_name     = s
+   owner_phone    = s
+   latitude       = d
+   longitude      = d
+   gps_address    = s
+   gps_accuracy   = d
+   property_photo = s
+
+   Total = 12 values
+*/
+
+$stmt->bind_param(
+    "ssdissddsdss",
+    $title,
+    $location,
+    $price,
+    $bedrooms,
+    $description,
+    $owner_name,
+    $owner_phone,
+    $latitude,
+    $longitude,
+    $gps_address,
+    $gps_accuracy,
+    $photoPath
+);
+
+
+/* =========================================
+   EXECUTE
+========================================= */
+
+if ($stmt->execute()) {
+
+    echo json_encode([
+        "success" => true,
+        "message" => "House added successfully.",
+        "house_id" => $stmt->insert_id,
+        "photo" => $photoPath
+    ]);
+
+}
+
+
+/* =========================================
+   DATABASE ERROR
+========================================= */
+
+else {
+
+    /*
+       If database insertion fails,
+       delete uploaded photo.
+    */
+
+    if (file_exists($photoPath)) {
+
+        unlink($photoPath);
+    }
+
+
+    echo json_encode([
+        "success" => false,
+        "message" => "Database error: " . $stmt->error
+    ]);
+}
+
+
+/* =========================================
+   CLOSE
+========================================= */
+
+$stmt->close();
+
+$conn->close();
+
+?>
+
+table creation
+
+CREATE TABLE `addhouse` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `bedrooms` int(11) NOT NULL,
+  `description` text DEFAULT NULL,
+  `owner_name` varchar(255) NOT NULL,
+  `owner_phone` varchar(20) DEFAULT NULL,
+  `latitude` decimal(10,8) NOT NULL,
+  `longitude` decimal(11,8) NOT NULL,
+  `gps_address` text DEFAULT NULL,
+  `gps_accuracy` decimal(10,2) DEFAULT NULL,
+  `property_photo` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `addhouse`
+--
+
+INSERT INTO `addhouse` (`id`, `title`, `location`, `price`, `bedrooms`, `description`, `owner_name`, `owner_phone`, `latitude`, `longitude`, `gps_address`, `gps_accuracy`, `property_photo`, `created_at`) VALUES
+(1, 'Independent House 1', 'Bapatla', 11000.00, 1, 'Affordable independent house suitable for a small family.', 'Ramesh Kumar', '9876500001', 15.90450000, 80.46700000, 'Bapatla Main Road', 10.50, 'uploads/house1.jpg.png', '2026-09-30 13:20:07'),
+(2, 'Independent House 2', 'Bapatla', 12000.00, 2, 'Spacious independent house with good ventilation.', 'Suresh Kumar', '9876500002', 15.90500000, 80.46800000, 'Bapatla Railway Road', 9.80, 'uploads/house2.jpg', '2026-09-30 13:20:07'),
+(3, 'Independent House 3', 'Bapatla', 13000.00, 2, 'Well maintained house with parking facility.', 'Ravi Kumar', '9876500003', 15.90600000, 80.46900000, 'Bapatla Town', 8.90, 'uploads/house3.jpg', '2026-09-30 13:20:07'),
+(4, 'Independent House 4', 'Bapatla', 14000.00, 2, 'Comfortable house in a peaceful residential area.', 'Prasad Rao', '9876500004', 15.90700000, 80.47000000, 'Bapatla Residential Area', 11.20, 'uploads/house4.jpg', '2026-09-30 13:20:07'),
+(5, 'Independent House 5', 'Bapatla', 15000.00, 3, 'Three bedroom independent house for families.', 'Venkat Rao', '9876500005', 15.90800000, 80.47100000, 'GBC Road Bapatla', 7.60, 'uploads/house5.jpg', '2026-09-30 13:20:07'),
+(6, 'Independent House 6', 'Bapatla', 16000.00, 3, 'Spacious house with parking and good ventilation.', 'Kiran Kumar', '9876500006', 15.90900000, 80.47200000, 'College Road Bapatla', 6.90, 'uploads/house6.jpg', '2026-09-30 13:20:07'),
+(7, 'Independent House 7', 'Bapatla', 17000.00, 3, 'Modern independent house with comfortable rooms.', 'Mahesh Kumar', '9876500007', 15.91000000, 80.47300000, 'Suryalanka Road', 9.40, 'uploads/house7.jpg', '2026-09-30 13:20:07'),
+(8, 'Independent House 8', 'Bapatla', 18000.00, 3, 'Family house with spacious living area.', 'Raghu Babu', '9876500008', 15.91100000, 80.47400000, 'Old Bus Stand Road', 8.70, 'uploads/house8.jpg', '2026-09-30 13:20:07'),
+(9, 'Independent House 9', 'Bapatla', 19000.00, 4, 'Large independent house suitable for a family.', 'Naresh Kumar', '9876500009', 15.91200000, 80.47500000, 'Bapatla Market Area', 10.10, 'uploads/house9.jpg', '2026-09-30 13:20:07'),
+(10, 'Independent House 10', 'Bapatla', 20000.00, 4, 'Premium independent house with parking facility.', 'Anil Kumar', '9876500010', 15.91300000, 80.47600000, 'Bapatla Housing Area', 7.80, 'uploads/house10.jpg', '2026-09-30 13:20:07'),
+(11, 'Apartment 1', 'Bapatla', 10000.00, 1, 'Affordable one bedroom apartment.', 'Rajesh Kumar', '9876500011', 15.91400000, 80.47700000, 'Bapatla Main Road', 9.30, 'uploads/apartment1.jpg', '2026-09-30 13:20:07'),
+(12, 'Apartment 2', 'Bapatla', 11000.00, 2, 'Comfortable two bedroom apartment.', 'Vijay Kumar', '9876500012', 15.91500000, 80.47800000, 'Bapatla Railway Road', 8.40, 'uploads/apartment2.jpg', '2026-09-30 13:20:07'),
+(13, 'Apartment 3', 'Bapatla', 12000.00, 2, 'Well maintained apartment with modern facilities.', 'Harish Kumar', '9876500013', 15.91600000, 80.47900000, 'Bapatla Town', 7.90, 'uploads/apartment3.jpg', '2026-09-30 13:20:07'),
+(14, 'Apartment 4', 'Bapatla', 13000.00, 2, 'Spacious apartment suitable for a small family.', 'Chandra Sekhar', '9876500014', 15.91700000, 80.48000000, 'GBC Road Bapatla', 10.40, 'uploads/apartment4.jpg', '2026-09-30 13:20:07'),
+(15, 'Apartment 5', 'Bapatla', 14000.00, 2, 'Modern apartment with good ventilation.', 'Surya Prakash', '9876500015', 15.91800000, 80.48100000, 'College Road Bapatla', 8.10, 'uploads/apartment5.jpg', '2026-09-30 13:20:07'),
+(16, 'Apartment 6', 'Bapatla', 15000.00, 3, 'Three bedroom apartment with spacious rooms.', 'Pavan Kumar', '9876500016', 15.91900000, 80.48200000, 'Suryalanka Road', 9.70, 'uploads/apartment6.jpg', '2026-09-30 13:20:07'),
+(17, 'Apartment 7', 'Bapatla', 16000.00, 3, 'Family apartment with parking facility.', 'Lokesh Kumar', '9876500017', 15.92000000, 80.48300000, 'Bapatla Residential Area', 6.80, 'uploads/apartment7.jpg', '2026-09-30 13:20:07'),
+(18, 'Apartment 8', 'Bapatla', 17000.00, 3, 'Premium apartment in a peaceful location.', 'Rohit Kumar', '9876500018', 15.92100000, 80.48400000, 'Old Bus Stand Road', 8.50, 'uploads/apartment8.jpg', '2026-09-30 13:20:07'),
+(19, 'Apartment 9', 'Bapatla', 18000.00, 3, 'Spacious modern apartment for families.', 'Manoj Kumar', '9876500019', 15.92200000, 80.48500000, 'Bapatla Market Area', 7.30, 'uploads/apartment9.jpg', '2026-09-30 13:20:07'),
+(20, 'Apartment 10', 'Bapatla', 20000.00, 4, 'Large four bedroom premium apartment.', 'Krishna Rao', '9876500020', 15.92300000, 80.48600000, 'Bapatla Housing Area', 9.10, 'uploads/apartment10.jpg', '2026-09-30 13:20:07'),
+(21, 'Villa 1', 'Bapatla', 20000.00, 2, 'Beautiful villa with spacious rooms.', 'Praveen Kumar', '9876500021', 15.92400000, 80.48700000, 'Bapatla Main Road', 7.70, 'uploads/villa1.jpg', '2026-09-30 13:20:07'),
+(22, 'Villa 2', 'Bapatla', 22000.00, 2, 'Modern villa suitable for a small family.', 'Ramesh Rao', '9876500022', 15.92500000, 80.48800000, 'Bapatla Railway Road', 8.80, 'uploads/villa2.jpg', '2026-09-30 13:20:07'),
+(23, 'Villa 3', 'Bapatla', 24000.00, 3, 'Three bedroom villa with parking space.', 'Srinivas Rao', '9876500023', 15.92600000, 80.48900000, 'Bapatla Town', 6.90, 'uploads/villa3.jpg', '2026-09-30 13:20:07'),
+(24, 'Villa 4', 'Bapatla', 25000.00, 3, 'Spacious villa in a peaceful residential area.', 'Mohan Kumar', '9876500024', 15.92700000, 80.49000000, 'GBC Road Bapatla', 9.20, 'uploads/villa4.jpg', '2026-09-30 13:20:07'),
+(25, 'Villa 5', 'Bapatla', 26000.00, 3, 'Modern family villa with comfortable rooms.', 'Gopi Krishna', '9876500025', 15.92800000, 80.49100000, 'College Road Bapatla', 8.30, 'uploads/villa5.jpg', '2026-09-30 13:20:07'),
+(26, 'Villa 6', 'Bapatla', 28000.00, 3, 'Premium villa with spacious living area.', 'Vamsi Krishna', '9876500026', 15.92900000, 80.49200000, 'Suryalanka Road', 7.50, 'uploads/villa6.jpg', '2026-09-30 13:20:07'),
+(27, 'Villa 7', 'Bapatla', 30000.00, 4, 'Large four bedroom villa for families.', 'Ajay Kumar', '9876500027', 15.93000000, 80.49300000, 'Bapatla Residential Area', 10.20, 'uploads/villa7.jpg', '2026-09-30 13:20:07'),
+(28, 'Villa 8', 'Bapatla', 32000.00, 4, 'Luxury villa with parking facility.', 'Deepak Kumar', '9876500028', 15.93100000, 80.49400000, 'Old Bus Stand Road', 8.60, 'uploads/villa8.jpg', '2026-09-30 13:20:07'),
+(29, 'Villa 9', 'Bapatla', 34000.00, 4, 'Spacious premium villa with modern facilities.', 'Tarun Kumar', '9876500029', 15.93200000, 80.49500000, 'Bapatla Market Area', 9.40, 'uploads/villa9.jpg', '2026-09-30 13:20:07'),
+(30, 'Villa 10', 'Bapatla', 35000.00, 4, 'Large luxury villa suitable for families.', 'Venu Gopal', '9876500030', 15.93300000, 80.49600000, 'Bapatla Housing Area', 7.90, 'uploads/villa10.jpg', '2026-09-30 13:20:07'),
+(31, 'Duplex House 1', 'Bapatla', 18000.00, 2, 'Comfortable duplex house with two floors.', 'Ravi Teja', '9876500031', 15.93400000, 80.49700000, 'Bapatla Main Road', 8.20, 'uploads/duplex1.jpg', '2026-09-30 13:20:07'),
+(32, 'Duplex House 2', 'Bapatla', 19000.00, 2, 'Modern duplex house with spacious rooms.', 'Sai Kumar', '9876500032', 15.93500000, 80.49800000, 'Bapatla Railway Road', 9.10, 'uploads/duplex2.jpg', '2026-09-30 13:20:07'),
+(33, 'Duplex House 3', 'Bapatla', 20000.00, 2, 'Well maintained duplex house for families.', 'Chaitanya Kumar', '9876500033', 15.93600000, 80.49900000, 'Bapatla Town', 7.40, 'uploads/duplex3.jpg', '2026-09-30 13:20:07'),
+(34, 'Duplex House 4', 'Bapatla', 21000.00, 3, 'Three bedroom duplex house with parking.', 'Shankar Rao', '9876500034', 15.93700000, 80.50000000, 'GBC Road Bapatla', 8.90, 'uploads/duplex4.jpg', '2026-09-30 13:20:07'),
+(35, 'Duplex House 5', 'Bapatla', 22000.00, 3, 'Spacious duplex house in a peaceful area.', 'Ramesh Babu', '9876500035', 15.93800000, 80.50100000, 'College Road Bapatla', 6.70, 'uploads/duplex5.jpg', '2026-09-30 13:20:07'),
+(36, 'Duplex House 6', 'Bapatla', 23000.00, 3, 'Modern duplex with comfortable living space.', 'Karthik Kumar', '9876500036', 15.93900000, 80.50200000, 'Suryalanka Road', 9.60, 'uploads/duplex6.jpg', '2026-09-30 13:20:07'),
+(37, 'Duplex House 7', 'Bapatla', 24000.00, 3, 'Family duplex house with good ventilation.', 'Bharath Kumar', '9876500037', 15.94000000, 80.50300000, 'Bapatla Residential Area', 8.40, 'uploads/duplex7.jpg', '2026-09-30 13:20:07'),
+(38, 'Duplex House 8', 'Bapatla', 26000.00, 4, 'Large duplex house with four bedrooms.', 'Surendra Kumar', '9876500038', 15.94100000, 80.50400000, 'Old Bus Stand Road', 7.80, 'uploads/duplex8.jpg', '2026-09-30 13:20:07'),
+(39, 'Duplex House 9', 'Bapatla', 28000.00, 4, 'Premium duplex house with parking facility.', 'Ganesh Kumar', '9876500039', 15.94200000, 80.50500000, 'Bapatla Market Area', 10.00, 'uploads/duplex9.jpg', '2026-09-30 13:20:07'),
+(40, 'Duplex House 10', 'Bapatla', 30000.00, 4, 'Spacious four bedroom duplex house.', 'Raghu Kumar', '9876500040', 15.94300000, 80.50600000, 'Bapatla Housing Area', 8.70, 'uploads/duplex10.jpg', '2026-09-30 13:20:07'),
+(41, 'Single Family House 1', 'Bapatla', 12000.00, 1, 'Affordable single-family house for a small family.', 'Raju Kumar', '9876500041', 15.94400000, 80.50700000, 'Bapatla Main Road', 9.30, 'uploads/family1.jpg', '2026-09-30 13:20:07'),
+(42, 'Single Family House 2', 'Bapatla', 13000.00, 2, 'Comfortable two bedroom family house.', 'Vijay Rao', '9876500042', 15.94500000, 80.50800000, 'Bapatla Railway Road', 8.10, 'uploads/family2.jpg', '2026-09-30 13:20:07'),
+(43, 'Single Family House 3', 'Bapatla', 14000.00, 2, 'Well maintained family house with parking.', 'Satish Kumar', '9876500043', 15.94600000, 80.50900000, 'Bapatla Town', 7.60, 'uploads/family3.jpg', '2026-09-30 13:20:07'),
+(44, 'Single Family House 4', 'Bapatla', 15000.00, 2, 'Spacious family house with good ventilation.', 'Ramesh Naidu', '9876500044', 15.94700000, 80.51000000, 'GBC Road Bapatla', 10.10, 'uploads/family4.jpg', '2026-09-30 13:20:07'),
+(45, 'Single Family House 5', 'Bapatla', 16000.00, 3, 'Three bedroom family house suitable for families.', 'Prakash Kumar', '9876500045', 15.94800000, 80.51100000, 'College Road Bapatla', 8.80, 'uploads/family5.jpg', '2026-09-30 13:20:07'),
+(46, 'Single Family House 6', 'Bapatla', 17000.00, 3, 'Modern family house with spacious rooms.', 'Naveen Kumar', '9876500046', 15.94900000, 80.51200000, 'Suryalanka Road', 7.20, 'uploads/family6.jpg', '2026-09-30 13:20:07'),
+(47, 'Single Family House 7', 'Bapatla', 18000.00, 3, 'Comfortable house in a peaceful area.', 'Sunil Kumar', '9876500047', 15.95000000, 80.51300000, 'Bapatla Residential Area', 9.50, 'uploads/family7.jpg', '2026-09-30 13:20:07'),
+(48, 'Single Family House 8', 'Bapatla', 19000.00, 3, 'Spacious family house with parking facility.', 'Harsha Vardhan', '9876500048', 15.95100000, 80.51400000, 'Old Bus Stand Road', 8.30, 'uploads/family8.jpg', '2026-09-30 13:20:07'),
+(49, 'Single Family House 9', 'Bapatla', 21000.00, 4, 'Large four bedroom family house.', 'Vishnu Kumar', '9876500049', 15.95200000, 80.51500000, 'Bapatla Market Area', 9.70, 'uploads/family9.jpg', '2026-09-30 13:20:07'),
+(50, 'Single Family House 10', 'Bapatla', 23000.00, 4, 'Premium single-family house with spacious rooms.', 'Abhishek Kumar', '9876500050', 15.95300000, 80.51600000, 'Bapatla Housing Area', 7.90, 'uploads/family10.jpg', '2026-09-30 13:20:07');
+
+--
+

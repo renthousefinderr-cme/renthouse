@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    Online House Rent - User Profiles
+</title>
+
+<style>
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.55)
+        ),
+        url("https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1500&q=80");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    color: #333;
+
+}
+
+header {
+
+    width: 100%;
+
+    background: #0d6efd;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 7%;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.3);
+
+}
+
+.logo {
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+
+}
+
+nav ul {
+
+    display: flex;
+
+    list-style: none;
+
+    gap: 25px;
+
+    align-items: center;
+
+}
+
+nav ul li a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+
+}
+
+nav ul li a:hover {
+
+    color: #dbeafe;
+
+}
+
+h1 {
+
+    text-align: center;
+
+    color: white;
+
+    margin: 35px 0 30px;
+
+    font-size: 32px;
+
+    text-shadow:
+        0 3px 10px rgba(0,0,0,0.6);
+
+}
+
+.container {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    padding: 10px 30px 45px;
+
+}
+
+.card {
+
+    width: 280px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.98),
+            rgba(235,245,255,0.96)
+        );
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.3);
+
+    border: 2px solid rgba(255,255,255,0.8);
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+
+}
+
+.card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 6px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0d6efd,
+            #00c6ff,
+            #00e5ff
+        );
+
+}
+
+.card:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.02);
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,0.4);
+
+}
+
+.profile-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: 5px auto 15px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #00c6ff
+        );
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 5px 15px rgba(13,110,253,0.4);
+
+}
+
+.card h2 {
+
+    color: #0d6efd;
+
+    margin-bottom: 15px;
+
+    font-size: 22px;
+
+}
+
+.role {
+
+    display: inline-block;
+
+    background: #e3f2fd;
+
+    color: #0d6efd;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+}
+
+button {
+
+    width: 100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #0062ff
+        );
+
+    color: white;
+
+    border: none;
+
+    padding: 11px 20px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    transition: 0.3s;
+
+}
+
+button:hover {
+
+    background:
+        linear-gradient(
+            135deg,
+            #084ec0,
+            #003fc7
+        );
+
+    transform: translateY(-3px);
+
+}
+
+.details {
+
+    display: none;
+
+    margin-top: 15px;
+
+    text-align: left;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef7ff,
+            #e0f2ff
+        );
+
+    padding: 13px;
+
+    border-radius: 10px;
+
+    border-left: 4px solid #0d6efd;
+
+}
+
+.details p {
+
+    margin: 9px 0;
+
+    color: #444;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+}
+
+.details b {
+
+    color: #0d6efd;
+
+}
+
+@media (max-width: 850px) {
+
+    header {
+
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 15px;
+
+    }
+
+    .logo {
+
+        font-size: 24px;
+
+    }
+
+    nav ul {
+
+        gap: 13px;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+    }
+
+    nav ul li a {
+
+        font-size: 13px;
+
+    }
+
+    h1 {
+
+        font-size: 27px;
+
+        margin-top: 28px;
+
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    nav ul {
+
+        gap: 8px;
+
+    }
+
+    nav ul li a {
+
+        font-size: 12px;
+
+    }
+
+    h1 {
+
+        font-size: 23px;
+
+        margin-bottom: 20px;
+
+    }
+
+    .container {
+
+        padding: 10px 15px 30px;
+
+    }
+
+    .card {
+
+        width: 100%;
+
+        max-width: 320px;
+
+    }
+
+}
+
+</style>
+
+<script>
+
+function showDetails(id) {
+
+    var x = document.getElementById(id);
+
+    if (x.style.display === "block") {
+
+        x.style.display = "none";
+
+    } else {
+
+        x.style.display = "block";
+
+    }
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+
+        RentHouse
+
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="dashboard.php">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="properties.php">
+                    Properties
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+<h1>
+
+    Online House Rent - User Profiles
+
+</h1>
+
+<div class="container">
+
+    <!--
+        Profile cards will be generated
+        by profile.php from the users table.
+    -->
+
+</div>
+
+</body>
+
+</html>
+
+
+php
+
+<?php
+
+$conn = mysqli_connect(
+    "localhost",
+    "root",
+    "",
+    "rent_house_finder"
+);
+
+
+if (!$conn) {
+
+    die(
+        "Database connection failed: "
+        . mysqli_connect_error()
+    );
+
+}
+
+
+$sql = "
+
+    SELECT
+        id,
+        username,
+        phone,
+        address,
+        user_type,
+        created_at
+
+    FROM users
+
+    ORDER BY id ASC
+
+";
+
+
+$result = mysqli_query(
+    $conn,
+    $sql
+);
+
+
+if (!$result) {
+
+    die(
+        "Query failed: "
+        . mysqli_error($conn)
+    );
+
+}
+
+?>
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    User Profiles
+</title>
+
+<link
+    rel="stylesheet"
+    href="profile.css"
+>
+
+<style>
+
+body {
+
+    min-height: 100vh;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.55),
+            rgba(0,0,0,0.55)
+        ),
+        url("https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1500&q=80");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-attachment: fixed;
+
+    font-family: Arial, sans-serif;
+
+}
+
+header {
+
+    background: #0d6efd;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 15px 7%;
+
+}
+
+.logo {
+
+    font-size: 27px;
+
+    font-weight: bold;
+
+}
+
+nav ul {
+
+    display: flex;
+
+    list-style: none;
+
+    gap: 25px;
+
+}
+
+nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+}
+
+h1 {
+
+    text-align: center;
+
+    color: white;
+
+    margin: 35px 0;
+
+}
+
+.container {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    padding: 20px 30px 50px;
+
+}
+
+.card {
+
+    width: 280px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.3);
+
+}
+
+.profile-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0d6efd,
+            #00c6ff
+        );
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+}
+
+.card h2 {
+
+    color: #0d6efd;
+
+}
+
+.role {
+
+    display: inline-block;
+
+    background: #e3f2fd;
+
+    color: #0d6efd;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    margin: 10px;
+
+    font-weight: bold;
+
+}
+
+button {
+
+    width: 100%;
+
+    padding: 11px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #0d6efd;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+.details {
+
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 13px;
+
+    background: #eef7ff;
+
+    border-left: 4px solid #0d6efd;
+
+    border-radius: 10px;
+
+    text-align: left;
+
+}
+
+.details p {
+
+    margin: 9px 0;
+
+}
+
+.details b {
+
+    color: #0d6efd;
+
+}
+
+</style>
+
+<script>
+
+function showDetails(id) {
+
+    var x = document.getElementById(id);
+
+    if (x.style.display === "block") {
+
+        x.style.display = "none";
+
+    } else {
+
+        x.style.display = "block";
+
+    }
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+
+        RentHouse
+
+    </div>
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="dashboard.php">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="properties.php">
+                    Properties
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<h1>
+
+    Online House Rent - User Profiles
+
+</h1>
+
+
+<div class="container">
+
+
+<?php
+
+if (mysqli_num_rows($result) > 0) {
+
+
+    while (
+        $row = mysqli_fetch_assoc($result)
+    ) {
+
+
+        $id = $row['id'];
+
+        $username = htmlspecialchars(
+            $row['username']
+        );
+
+        $phone = htmlspecialchars(
+            $row['phone']
+        );
+
+        $address = htmlspecialchars(
+            $row['address']
+        );
+
+        $user_type = htmlspecialchars(
+            $row['user_type']
+        );
+
+        $created_at = htmlspecialchars(
+            $row['created_at']
+        );
+
+        $initial = strtoupper(
+            substr(
+                $row['username'],
+                0,
+                1
+            )
+        );
+
+        $details_id = "details_" . $id;
+
+?>
+
+
+<div class="card">
+
+
+    <div class="profile-icon">
+
+        <?php
+
+        echo $initial;
+
+        ?>
+
+    </div>
+
+
+    <h2>
+
+        <?php
+
+        echo $username;
+
+        ?>
+
+    </h2>
+
+
+    <span class="role">
+
+        <?php
+
+        echo ucfirst($user_type);
+
+        ?>
+
+    </span>
+
+
+    <button
+        onclick="showDetails(
+            '<?php echo $details_id; ?>'
+        )"
+    >
+
+        View Profile
+
+    </button>
+
+
+    <div
+        class="details"
+        id="<?php echo $details_id; ?>"
+    >
+
+
+        <p>
+
+            <b>
+                Phone:
+            </b>
+
+            <?php
+
+            echo $phone;
+
+            ?>
+
+        </p>
+
+
+        <p>
+
+            <b>
+                Address:
+            </b>
+
+            <?php
+
+            echo $address;
+
+            ?>
+
+        </p>
+
+
+        <p>
+
+            <b>
+                User Type:
+            </b>
+
+            <?php
+
+            echo ucfirst($user_type);
+
+            ?>
+
+        </p>
+
+
+        <p>
+
+            <b>
+                Joined:
+            </b>
+
+            <?php
+
+            echo $created_at;
+
+            ?>
+
+        </p>
+
+
+    </div>
+
+
+</div>
+
+
+<?php
+
+    }
+
+}
+
+else {
+
+?>
+
+
+<div class="card">
+
+    <h2>
+        No Users Found
+    </h2>
+
+    <p>
+        no records are present at users table.
+    </p>
+
+</div>
+
+
+<?php
+
+}
+
+?>
+
+
+</div>
+
+
+</body>
+
+</html>
+
+
+<?php
+
+mysqli_close($conn);
+
+?>

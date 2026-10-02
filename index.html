@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Logout Successful - Online Rent House Finder</title>
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body{
+
+            font-family:Arial, sans-serif;
+
+            min-height:100vh;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.50),
+                    rgba(0,0,0,0.50)
+                ),
+                url("https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1500&q=80");
+
+            background-size:cover;
+
+            background-position:center;
+
+            background-repeat:no-repeat;
+
+            background-attachment:fixed;
+
+            color:white;
+        }
+
+
+        /* =========================
+           MENU BAR
+        ========================= */
+
+        header{
+
+            width:100%;
+
+            background:#0d6efd;
+
+            color:white;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            padding:15px 8%;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.30);
+
+            position:relative;
+
+            z-index:10;
+        }
+
+
+        /* LOGO */
+
+        .logo{
+
+            font-size:27px;
+
+            font-weight:bold;
+
+            white-space:nowrap;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav ul{
+
+            display:flex;
+
+            list-style:none;
+
+            gap:25px;
+
+            align-items:center;
+        }
+
+
+        nav ul li a{
+
+            color:white;
+
+            text-decoration:none;
+
+            font-size:15px;
+
+            font-weight:500;
+
+            transition:0.3s;
+        }
+
+
+        nav ul li a:hover{
+
+            color:#d9faff;
+        }
+
+
+        /* =========================
+           MAIN SECTION
+        ========================= */
+
+        .main{
+
+            min-height:calc(100vh - 70px);
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            padding:40px 20px;
+        }
+
+
+        /* =========================
+           SUCCESS BOX
+        ========================= */
+
+        .logout-box{
+
+            width:100%;
+
+            max-width:650px;
+
+            background:rgba(255,255,255,0.95);
+
+            padding:40px 35px;
+
+            border-radius:20px;
+
+            text-align:center;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.35);
+
+            border:2px solid rgba(255,255,255,0.8);
+
+            animation:boxAnimation 0.7s ease;
+        }
+
+
+        /* =========================
+           BOX ANIMATION
+        ========================= */
+
+        @keyframes boxAnimation{
+
+            from{
+
+                opacity:0;
+
+                transform:
+                    translateY(30px)
+                    scale(0.95);
+            }
+
+            to{
+
+                opacity:1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        /* =========================
+           HEADING 1
+        ========================= */
+
+        h1{
+
+            font-size:50px;
+
+            margin-bottom:20px;
+
+            color:#2c3e50;
+        }
+
+
+        /* =========================
+           HEADING 2
+        ========================= */
+
+        h2{
+
+            font-size:36px;
+
+            margin-bottom:20px;
+
+            color:#2c3e50;
+        }
+
+
+        /* =========================
+           PARAGRAPH
+        ========================= */
+
+        p{
+
+            font-size:22px;
+
+            line-height:1.8;
+
+            margin-bottom:40px;
+
+            color:#555;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn{
+
+            display:inline-block;
+
+            text-decoration:none;
+
+            padding:14px 30px;
+
+            margin:10px;
+
+            font-size:18px;
+
+            color:white;
+
+            border-radius:8px;
+
+            transition:0.3s;
+
+            font-weight:bold;
+        }
+
+
+        /* =========================
+           LOGIN BUTTON
+        ========================= */
+
+        .login{
+
+            background:#28a745;
+        }
+
+
+        .login:hover{
+
+            background:#1e7e34;
+
+            transform:translateY(-3px);
+        }
+
+
+        /* =========================
+           HOME BUTTON
+        ========================= */
+
+        .home{
+
+            background:#007bff;
+        }
+
+
+        .home:hover{
+
+            background:#0056b3;
+
+            transform:translateY(-3px);
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media(max-width:850px){
+
+            header{
+
+                flex-direction:column;
+
+                gap:12px;
+
+                padding:15px;
+            }
+
+
+            .logo{
+
+                font-size:24px;
+            }
+
+
+            nav ul{
+
+                gap:13px;
+
+                flex-wrap:wrap;
+
+                justify-content:center;
+            }
+
+
+            nav ul li a{
+
+                font-size:13px;
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width:600px){
+
+            .main{
+
+                padding:25px 15px;
+            }
+
+
+            .logout-box{
+
+                padding:30px 20px;
+
+                border-radius:16px;
+            }
+
+
+            h1{
+
+                font-size:34px;
+            }
+
+
+            h2{
+
+                font-size:28px;
+            }
+
+
+            p{
+
+                font-size:18px;
+
+                line-height:1.7;
+
+                margin-bottom:25px;
+            }
+
+
+            .btn{
+
+                display:block;
+
+                width:100%;
+
+                max-width:230px;
+
+                margin:12px auto;
+            }
+
+        }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media(max-width:400px){
+
+            nav ul{
+
+                gap:8px;
+            }
+
+
+            nav ul li a{
+
+                font-size:11px;
+            }
+
+
+            h1{
+
+                font-size:28px;
+            }
+
+
+            h2{
+
+                font-size:24px;
+            }
+
+
+            p{
+
+                font-size:16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         MENU BAR
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+            🏠 RentHouse
+        </div>
+
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="properties.html">
+                        Properties
+                    </a>
+                </li>
+
+                <li>
+                    <a href="bookings.html">
+                        Bookings
+                    </a>
+                </li>
+
+                <li>
+                    <a href="addhouse.html">
+                        Add House
+                    </a>
+                </li>
+
+                <li>
+                    <a href="profiles.html">
+                        Profiles
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="main">
+
+
+        <!-- SUCCESS FORM / BOX -->
+
+        <div class="logout-box">
+
+
+            <h1>
+                Online Rent House Finder
+            </h1>
+
+
+            <h2>
+                Logout Successful!
+            </h2>
+
+
+            <p>
+                You are successfully logged out.<br>
+
+                Thank you for using the Online Rent House Finder.<br>
+
+                We look forward to seeing you again!
+            </p>
+
+
+            <a
+                href="Title.html"
+                class="btn login"
+            >
+                Login Again
+            </a>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>
+
+
+db.php
+
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$database = "rent_house_finder";
+
+$conn = new mysqli(
+    $servername,
+    $username,
+    $password,
+    $database
+);
+
+if ($conn->connect_error) {
+
+    die("Database connection failed: " . $conn->connect_error);
+
+}
+
+$conn->set_charset("utf8mb4");
+
+?>
+
+login.php
+
+<?php
+
+include "db.php";
+
+session_start();
+
+
+/* Check POST request */
+
+if ($_SERVER["REQUEST_METHOD"] != "POST") {
+
+    header("Location: index.html");
+    exit();
+
+}
+
+
+/* Get login values */
+
+$username = trim($_POST["username"] ?? "");
+$password = $_POST["password"] ?? "";
+
+
+/* Check empty fields */
+
+if (
+    empty($username) ||
+    empty($password)
+) {
+
+    header("Location: index.html?login=failed");
+    exit();
+
+}
+
+
+/* Find user */
+
+$stmt = $conn->prepare(
+    "SELECT id, username, password, user_type
+     FROM users
+     WHERE username = ?"
+);
+
+$stmt->bind_param(
+    "s",
+    $username
+);
+
+$stmt->execute();
+
+$result = $stmt->get_result();
+
+
+/* Check username */
+
+if ($result->num_rows == 1) {
+
+    $user = $result->fetch_assoc();
+
+
+    /*
+    ==================================
+    NORMAL PASSWORD COMPARISON
+    ==================================
+    */
+
+    if ($password === $user["password"]) {
+
+        /* Login successful */
+
+        $_SESSION["user_id"] = $user["id"];
+
+        $_SESSION["username"] = $user["username"];
+
+        $_SESSION["user_type"] = $user["user_type"];
+
+
+        /* Go to Page 4 */
+
+        header("Location: index.html?login=success");
+
+        exit();
+
+    }
+
+}
+
+
+/* Login failed */
+
+header("Location: index.html?login=failed");
+
+exit();
+
+?>
+
+users table
+
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(10) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `user_type` enum('tenant','owner') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `phone`, `address`, `user_type`, `created_at`) VALUES
+(1, 'Vijay', 'vijay123', '9876123450', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(2, 'Lakshmi', 'lakshmi123', '9123987654', 'Bapatla', 'owner', '2026-09-28 13:53:34'),
+(3, 'Naveen', 'naveen123', '9988123456', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(4, 'Pooja', 'pooja123', '9876456123', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(5, 'Mahesh', 'mahesh123', '9012678345', 'Bapatla', 'owner', '2026-09-28 13:53:34'),
+(6, 'Swathi', 'swathi123', '9345126789', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(7, 'Ramesh', 'ramesh123', '8899123456', 'Bapatla', 'owner', '2026-09-28 13:53:34'),
+(8, 'Kavya', 'kavya123', '9765123480', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(9, 'Manoj', 'manoj123', '9654781230', 'Bapatla', 'owner', '2026-09-28 13:53:34'),
+(10, 'Harika', 'harika123', '9543678120', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(11, 'Prakash', 'prakash123', '9876234510', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(12, 'Aishwarya', 'aishwarya123', '9123567890', 'Bapatla', 'owner', '2026-09-28 13:53:34'),
+(13, 'Venkat', 'venkat123', '9987654321', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(14, 'Keerthi', 'keerthi123', '9876543120', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(15, 'Surya', 'surya123', '9012987654', 'Bapatla', 'owner', '2026-09-28 13:53:34'),
+(16, 'Bhavya', 'bhavya123', '9345781260', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(17, 'Rohit', 'rohit123', '8899654321', 'Bapatla', 'owner', '2026-09-28 13:53:34'),
+(18, 'Sowmya', 'sowmya123', '9765342180', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(19, 'Ganesh', 'ganesh123', '9654123780', 'Bapatla', 'owner', '2026-09-28 13:53:34'),
+(20, 'Nandini', 'nandini123', '9543782160', 'Bapatla', 'tenant', '2026-09-28 13:53:34'),
+(22, 'radha', 'radha1234', '7894123567', 'bapatla', 'tenant', '2026-09-28 15:52:58');
+
+

@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Logout - Online Rent House Finder</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+
+/* =========================
+   BODY
+   HOUSE BACKGROUND IMAGE
+========================= */
+
+body{
+
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.50),
+            rgba(0,0,0,0.50)
+        ),
+        url("https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1500&q=80");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-repeat:no-repeat;
+
+    background-attachment:fixed;
+
+    color:#333;
+}
+
+
+/* =========================
+   MENU BAR
+========================= */
+
+header{
+
+    width:100%;
+
+    background:#0d6efd;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 8%;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,0.30);
+
+    position:relative;
+
+    z-index:10;
+}
+
+
+/* LOGO */
+
+.logo{
+
+    font-size:27px;
+
+    font-weight:bold;
+
+    white-space:nowrap;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:25px;
+
+    align-items:center;
+}
+
+
+nav ul li a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    transition:0.3s;
+}
+
+
+nav ul li a:hover{
+
+    color:#d9faff;
+}
+
+
+/* =========================
+   MAIN SECTION
+========================= */
+
+.main{
+
+    min-height:calc(100vh - 70px);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px 20px;
+}
+
+
+/* =========================
+   LOGOUT BOX
+   ORIGINAL COLOURS
+========================= */
+
+.logout-box{
+
+    background:white;
+
+    width:400px;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.2);
+
+    text-align:center;
+
+    animation:boxAnimation 0.6s ease;
+}
+
+
+/* =========================
+   BOX ANIMATION
+========================= */
+
+@keyframes boxAnimation{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(25px)
+            scale(0.96);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+h1{
+
+    color:#2c3e50;
+
+    margin-bottom:15px;
+}
+
+
+h2{
+
+    color:#2c3e50;
+
+    margin-bottom:10px;
+}
+
+
+/* =========================
+   PARAGRAPH
+========================= */
+
+p{
+
+    color:#555;
+
+    margin-bottom:25px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn{
+
+    display:inline-block;
+
+    text-decoration:none;
+
+    padding:12px 20px;
+
+    margin:10px;
+
+    border-radius:6px;
+
+    color:white;
+
+    font-weight:bold;
+
+    transition:0.3s;
+}
+
+
+/* =========================
+   LOGOUT BUTTON
+   ORIGINAL COLOUR
+========================= */
+
+.logout{
+
+    background:#e74c3c;
+}
+
+
+.logout:hover{
+
+    background:#c0392b;
+}
+
+
+/* =========================
+   CANCEL BUTTON
+   ORIGINAL COLOUR
+========================= */
+
+.cancel{
+
+    background:#3498db;
+}
+
+
+.cancel:hover{
+
+    background:#2980b9;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:850px){
+
+    header{
+
+        flex-direction:column;
+
+        gap:12px;
+
+        padding:15px;
+    }
+
+
+    .logo{
+
+        font-size:24px;
+    }
+
+
+    nav ul{
+
+        gap:13px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+    }
+
+
+    nav ul li a{
+
+        font-size:13px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+    .main{
+
+        padding:25px 15px;
+    }
+
+
+    .logout-box{
+
+        width:100%;
+
+        max-width:400px;
+
+        padding:25px 20px;
+    }
+
+
+    nav ul{
+
+        gap:8px;
+    }
+
+
+    nav ul li a{
+
+        font-size:12px;
+    }
+
+
+    h1{
+
+        font-size:25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MENU BAR
+========================= -->
+
+<header>
+
+    <div class="logo">
+        🏠 RentHouse
+    </div>
+
+
+    <nav>
+
+        <ul>
+
+            <li>
+                <a href="dashboard.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="properties.html">
+                    Properties
+                </a>
+            </li>
+
+            <li>
+                <a href="bookings.html">
+                    Bookings
+                </a>
+            </li>
+
+            <li>
+                <a href="addhouse.html">
+                    Add House
+                </a>
+            </li>
+
+            <li>
+                <a href="profiles.html">
+                    Profiles
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<main class="main">
+
+
+    <div class="logout-box">
+
+        <h1>
+            Online Rent House Finder
+        </h1>
+
+        <h2>
+            Logout
+        </h2>
+
+        <p>
+            Are you sure you want to logout?<br>
+            Click <b>Yes, Logout</b> to sign out from your account.
+        </p>
+
+
+        <a
+            href="logoutsuccessful.html"
+            class="btn logout"
+        >
+            Yes, Logout
+        </a>
+
+
+        <a
+            href="dashboard.html"
+            class="btn cancel"
+        >
+            Cancel
+        </a>
+
+    </div>
+
+
+</main>
+
+
+</body>
+
+</html>
+
+logout.successful.html
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Logout Successful - Online Rent House Finder</title>
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body{
+
+            font-family:Arial, sans-serif;
+
+            min-height:100vh;
+
+            background:
+                linear-gradient(
+                    rgba(0,0,0,0.50),
+                    rgba(0,0,0,0.50)
+                ),
+                url("https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1500&q=80");
+
+            background-size:cover;
+
+            background-position:center;
+
+            background-repeat:no-repeat;
+
+            background-attachment:fixed;
+
+            color:white;
+        }
+
+
+        /* =========================
+           MENU BAR
+        ========================= */
+
+        header{
+
+            width:100%;
+
+            background:#0d6efd;
+
+            color:white;
+
+            display:flex;
+
+            justify-content:space-between;
+
+            align-items:center;
+
+            padding:15px 8%;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.30);
+
+            position:relative;
+
+            z-index:10;
+        }
+
+
+        /* LOGO */
+
+        .logo{
+
+            font-size:27px;
+
+            font-weight:bold;
+
+            white-space:nowrap;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav ul{
+
+            display:flex;
+
+            list-style:none;
+
+            gap:25px;
+
+            align-items:center;
+        }
+
+
+        nav ul li a{
+
+            color:white;
+
+            text-decoration:none;
+
+            font-size:15px;
+
+            font-weight:500;
+
+            transition:0.3s;
+        }
+
+
+        nav ul li a:hover{
+
+            color:#d9faff;
+        }
+
+
+        /* =========================
+           MAIN SECTION
+        ========================= */
+
+        .main{
+
+            min-height:calc(100vh - 70px);
+
+            display:flex;
+
+            justify-content:center;
+
+            align-items:center;
+
+            padding:40px 20px;
+        }
+
+
+        /* =========================
+           SUCCESS BOX
+        ========================= */
+
+        .logout-box{
+
+            width:100%;
+
+            max-width:650px;
+
+            background:rgba(255,255,255,0.95);
+
+            padding:40px 35px;
+
+            border-radius:20px;
+
+            text-align:center;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.35);
+
+            border:2px solid rgba(255,255,255,0.8);
+
+            animation:boxAnimation 0.7s ease;
+        }
+
+
+        /* =========================
+           BOX ANIMATION
+        ========================= */
+
+        @keyframes boxAnimation{
+
+            from{
+
+                opacity:0;
+
+                transform:
+                    translateY(30px)
+                    scale(0.95);
+            }
+
+            to{
+
+                opacity:1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        /* =========================
+           HEADING 1
+        ========================= */
+
+        h1{
+
+            font-size:50px;
+
+            margin-bottom:20px;
+
+            color:#2c3e50;
+        }
+
+
+        /* =========================
+           HEADING 2
+        ========================= */
+
+        h2{
+
+            font-size:36px;
+
+            margin-bottom:20px;
+
+            color:#2c3e50;
+        }
+
+
+        /* =========================
+           PARAGRAPH
+        ========================= */
+
+        p{
+
+            font-size:22px;
+
+            line-height:1.8;
+
+            margin-bottom:40px;
+
+            color:#555;
+        }
+
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .btn{
+
+            display:inline-block;
+
+            text-decoration:none;
+
+            padding:14px 30px;
+
+            margin:10px;
+
+            font-size:18px;
+
+            color:white;
+
+            border-radius:8px;
+
+            transition:0.3s;
+
+            font-weight:bold;
+        }
+
+
+        /* =========================
+           LOGIN BUTTON
+        ========================= */
+
+        .login{
+
+            background:#28a745;
+        }
+
+
+        .login:hover{
+
+            background:#1e7e34;
+
+            transform:translateY(-3px);
+        }
+
+
+        /* =========================
+           HOME BUTTON
+        ========================= */
+
+        .home{
+
+            background:#007bff;
+        }
+
+
+        .home:hover{
+
+            background:#0056b3;
+
+            transform:translateY(-3px);
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media(max-width:850px){
+
+            header{
+
+                flex-direction:column;
+
+                gap:12px;
+
+                padding:15px;
+            }
+
+
+            .logo{
+
+                font-size:24px;
+            }
+
+
+            nav ul{
+
+                gap:13px;
+
+                flex-wrap:wrap;
+
+                justify-content:center;
+            }
+
+
+            nav ul li a{
+
+                font-size:13px;
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media(max-width:600px){
+
+            .main{
+
+                padding:25px 15px;
+            }
+
+
+            .logout-box{
+
+                padding:30px 20px;
+
+                border-radius:16px;
+            }
+
+
+            h1{
+
+                font-size:34px;
+            }
+
+
+            h2{
+
+                font-size:28px;
+            }
+
+
+            p{
+
+                font-size:18px;
+
+                line-height:1.7;
+
+                margin-bottom:25px;
+            }
+
+
+            .btn{
+
+                display:block;
+
+                width:100%;
+
+                max-width:230px;
+
+                margin:12px auto;
+            }
+
+        }
+
+
+        /* =========================
+           SMALL MOBILE
+        ========================= */
+
+        @media(max-width:400px){
+
+            nav ul{
+
+                gap:8px;
+            }
+
+
+            nav ul li a{
+
+                font-size:11px;
+            }
+
+
+            h1{
+
+                font-size:28px;
+            }
+
+
+            h2{
+
+                font-size:24px;
+            }
+
+
+            p{
+
+                font-size:16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         MENU BAR
+    ========================= -->
+
+    <header>
+
+        <div class="logo">
+            🏠 RentHouse
+        </div>
+
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="dashboard.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="properties.html">
+                        Properties
+                    </a>
+                </li>
+
+                <li>
+                    <a href="bookings.html">
+                        Bookings
+                    </a>
+                </li>
+
+                <li>
+                    <a href="addhouse.html">
+                        Add House
+                    </a>
+                </li>
+
+                <li>
+                    <a href="profiles.html">
+                        Profiles
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="contact.html">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================= -->
+
+    <main class="main">
+
+
+        <!-- SUCCESS FORM / BOX -->
+
+        <div class="logout-box">
+
+
+            <h1>
+                Online Rent House Finder
+            </h1>
+
+
+            <h2>
+                Logout Successful!
+            </h2>
+
+
+            <p>
+                You are successfully logged out.<br>
+
+                Thank you for using the Online Rent House Finder.<br>
+
+                We look forward to seeing you again!
+            </p>
+
+
+            <a
+                href="Title.html"
+                class="btn login"
+            >
+                Login Again
+            </a>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>

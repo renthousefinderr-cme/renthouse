@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rent House Finder - Tenant</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+}
+
+header {
+    background: #0d6efd;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.hero {
+    height: 90vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),
+    url("https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1500&q=80");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.search-box {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+
+    display: flex;
+    gap: 10px;
+
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search-box input,
+.search-box select {
+    padding: 12px;
+    width: 200px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-box button {
+    padding: 12px 25px;
+
+    background: #0d6efd;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.search-box button:hover {
+    background: #0b5ed7;
+}
+
+.features {
+    padding: 70px 10%;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 25px;
+}
+
+.card {
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+}
+
+.card h3 {
+    margin: 15px 0;
+}
+
+footer {
+    background: #0d6efd;
+
+    color: white;
+
+    text-align: center;
+
+    padding: 20px;
+
+    margin-top: 40px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">
+    Rent House Finder
+</div>
+
+<nav>
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">Home</a>
+        </li>
+
+        <li>
+            <a href="properties.html">Properties</a>
+        </li>
+
+        <li>
+            <a href="about.html">About</a>
+        </li>
+
+        <li>
+            <a href="contact.html">Contact</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+    <h1>
+        Find Your Dream Rental House
+    </h1>
+
+    <p>
+        Search verified rental properties
+        at affordable prices.
+    </p>
+
+
+    <form
+        action="tenant.php"
+        method="GET"
+        class="search-box"
+    >
+
+        <input
+            type="text"
+            name="location"
+            value="Bapatla"
+            readonly
+        >
+
+
+        <select name="house_type">
+
+            <option value="">
+                All House Types
+            </option>
+
+            <option value="Apartment">
+                Apartment
+            </option>
+
+            <option value="Independent House">
+                Independent House
+            </option>
+
+            <option value="Villa">
+                Villa
+            </option>
+
+            <option value="Duplex House">
+                Duplex House
+            </option>
+
+            <option value="Single Family House">
+                Single Family House
+            </option>
+
+        </select>
+
+
+        <input
+            type="number"
+            name="budget"
+            placeholder="Maximum Budget"
+            min="0"
+        >
+
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+</div>
+
+
+</section>
+
+<section class="features">
+
+
+<h2>
+    Why Choose Us?
+</h2>
+
+
+<div class="cards">
+
+
+    <div class="card">
+
+        <h3>
+            Verified Houses
+        </h3>
+
+        <p>
+            Every property is verified
+            before listing.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>
+            Affordable Prices
+        </h3>
+
+        <p>
+            Find rental homes
+            within your budget.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>
+            Easy Search
+        </h3>
+
+        <p>
+            Search by location,
+            budget and property type.
+        </p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h3>
+            24/7 Support
+        </h3>
+
+        <p>
+            Our support team is
+            always ready to help.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+</section>
+
+<footer>
+
+
+<p>
+    © 2026 Rent House Finder | All Rights Reserved
+</p>
+
+</footer>
+
+</body>
+
+</html>
+
+php
+
+<?php
+
+$conn = mysqli_connect(
+    "localhost",
+    "root",
+    "",
+    "rent_house_finder"
+);
+
+if (!$conn) {
+
+    die("Database connection failed");
+
+}
+
+
+$location = $_GET['location'] ?? 'Bapatla';
+
+$house_type = $_GET['house_type'] ?? '';
+
+$budget = $_GET['budget'] ?? '';
+
+
+$sql = "
+
+    SELECT
+        id,
+        title,
+        location,
+        price,
+        bedrooms,
+        description,
+        owner_name,
+        owner_phone,
+        latitude,
+        longitude,
+        gps_address,
+        gps_accuracy,
+        property_photo,
+        created_at
+
+    FROM addhouse
+
+    WHERE location = ?
+
+";
+
+
+$params = [$location];
+
+$types = "s";
+
+
+if ($house_type != '') {
+
+    $sql .= "
+
+        AND title LIKE ?
+
+    ";
+
+    $params[] = $house_type . "%";
+
+    $types .= "s";
+
+}
+
+
+if ($budget != '') {
+
+    $sql .= "
+
+        AND price <= ?
+
+    ";
+
+    $params[] = $budget;
+
+    $types .= "d";
+
+}
+
+
+$sql .= "
+
+    ORDER BY price ASC
+
+";
+
+
+$stmt = mysqli_prepare(
+    $conn,
+    $sql
+);
+
+
+if (!$stmt) {
+
+    die(
+        "Query preparation failed: "
+        . mysqli_error($conn)
+    );
+
+}
+
+
+mysqli_stmt_bind_param(
+    $stmt,
+    $types,
+    ...$params
+);
+
+
+mysqli_stmt_execute($stmt);
+
+
+$result = mysqli_stmt_get_result(
+    $stmt
+);
+
+?>
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+
+>
+
+<title>
+Available Houses
+</title>
+
+<style>
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #f5f7fa;
+
+}
+
+header {
+
+    background: #0d6efd;
+
+    color: white;
+
+    padding: 20px 8%;
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+}
+
+.container {
+
+    padding: 40px 8%;
+
+}
+
+h1 {
+
+    text-align: center;
+
+}
+
+.info {
+
+    text-align: center;
+
+    margin: 20px;
+
+    color: #555;
+
+}
+
+.cards {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+
+}
+
+.card {
+
+    background: white;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+
+}
+
+.card img {
+
+    width: 100%;
+
+    height: 200px;
+
+    object-fit: cover;
+
+}
+
+.card-content {
+
+    padding: 20px;
+
+}
+
+.card h2 {
+
+    margin-top: 0;
+
+}
+
+.card p {
+
+    margin: 8px 0;
+
+}
+
+.price {
+
+    color: #0d6efd;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+.owner {
+
+    background: #f1f5f9;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    margin-top: 10px;
+
+}
+
+.gps {
+
+    background: #eef6ff;
+
+    padding: 10px;
+
+    border-radius: 6px;
+
+    margin-top: 10px;
+
+}
+
+.back {
+
+    display: block;
+
+    width: max-content;
+
+    margin: 30px auto;
+
+    padding: 12px 25px;
+
+    background: #0d6efd;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+}
+
+.no-house {
+
+    text-align: center;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+
+Rent House Finder
+
+
+</header>
+
+<div class="container">
+
+<h1>
+
+
+Available Houses in Bapatla
+
+
+</h1>
+
+<div class="info">
+
+
+Location:
+
+<strong>
+
+    <?php
+
+    echo htmlspecialchars(
+        $location
+    );
+
+    ?>
+
+</strong>
+
+
+<?php if ($house_type != '') { ?>
+
+    |
+
+    House Type:
+
+    <strong>
+
+        <?php
+
+        echo htmlspecialchars(
+            $house_type
+        );
+
+        ?>
+
+    </strong>
+
+<?php } ?>
+
+
+<?php if ($budget != '') { ?>
+
+    |
+
+    Budget:
+
+    <strong>
+
+        ₹<?php
+
+        echo htmlspecialchars(
+            $budget
+        );
+
+        ?>
+
+    </strong>
+
+<?php } ?>
+
+
+</div>
+
+<div class="cards">
+
+<?php
+
+if (
+    mysqli_num_rows($result) > 0
+) {
+
+
+    while (
+        $row = mysqli_fetch_assoc($result)
+    ) {
+
+
+?>
+
+<div class="card">
+
+<?php
+
+if (
+    !empty(
+        $row['property_photo']
+    )
+) {
+
+?>
+
+<img
+
+src="<?php
+
+echo htmlspecialchars(
+    $row['property_photo']
+);
+
+?>"
+
+alt="House Image"
+```
+
+>
+
+<?php
+
+}
+
+?>
+
+<div class="card-content">
+
+<h2>
+
+<?php
+
+echo htmlspecialchars(
+    $row['title']
+);
+
+?>
+
+</h2>
+
+<p>
+
+
+📍
+
+<?php
+
+echo htmlspecialchars(
+    $row['location']
+);
+
+?>
+
+
+</p>
+
+<p>
+
+
+🏠
+
+<?php
+
+$title = $row['title'];
+
+
+if (
+    stripos(
+        $title,
+        'Independent House'
+    ) === 0
+) {
+
+    echo "Independent House";
+
+}
+
+elseif (
+    stripos(
+        $title,
+        'Apartment'
+    ) === 0
+) {
+
+    echo "Apartment";
+
+}
+
+elseif (
+    stripos(
+        $title,
+        'Villa'
+    ) === 0
+) {
+
+    echo "Villa";
+
+}
+
+elseif (
+    stripos(
+        $title,
+        'Duplex House'
+    ) === 0
+) {
+
+    echo "Duplex House";
+
+}
+
+elseif (
+    stripos(
+        $title,
+        'Single Family House'
+    ) === 0
+) {
+
+    echo "Single Family House";
+
+}
+
+else {
+
+    echo "House";
+
+}
+
+?>
+
+
+</p>
+
+<p>
+
+
+🛏
+
+<?php
+
+echo htmlspecialchars(
+    $row['bedrooms']
+);
+
+?>
+
+Bedrooms
+
+</p>
+
+<p class="price">
+
+
+₹
+
+<?php
+
+echo number_format(
+    $row['price'],
+    2
+);
+
+?>
+
+/ Month
+
+</p>
+
+<p>
+
+
+<?php
+
+echo htmlspecialchars(
+    $row['description']
+);
+
+?>
+
+
+</p>
+
+<div class="owner">
+
+
+<strong>
+    Owner
+</strong>
+
+<br>
+
+👤
+
+<?php
+
+echo htmlspecialchars(
+    $row['owner_name']
+);
+
+?>
+
+<br>
+
+📞
+
+<?php
+
+echo htmlspecialchars(
+    $row['owner_phone']
+);
+
+?>
+
+
+</div>
+
+<div class="gps">
+
+
+<strong>
+    📍 GPS Location
+</strong>
+
+<br>
+
+Address:
+
+<?php
+
+echo htmlspecialchars(
+    $row['gps_address']
+);
+
+?>
+
+<br>
+
+Latitude:
+
+<?php
+
+echo htmlspecialchars(
+    $row['latitude']
+);
+
+?>
+
+<br>
+
+Longitude:
+
+<?php
+
+echo htmlspecialchars(
+    $row['longitude']
+);
+
+?>
+
+<br>
+
+GPS Accuracy:
+
+<?php
+
+echo htmlspecialchars(
+    $row['gps_accuracy']
+);
+
+?>
+
+meters
+
+
+</div>
+
+</div>
+
+</div>
+
+<?php
+
+    }
+
+}
+
+
+else {
+
+?>
+
+<div class="no-house">
+
+```
+<h2>
+
+    No Houses Found
+
+</h2>
+
+<p>
+
+    No available houses match
+    your search criteria.
+
+</p>
+```
+
+</div>
+
+<?php
+
+}
+
+?>
+
+</div>
+
+<a
+href="tenant.html"
+class="back"
+
+>
+
+
+Back to Search
+
+
+</a>
+
+</div>
+
+</body>
+
+</html>
+
+<?php
+
+mysqli_stmt_close($stmt);
+
+mysqli_close($conn);
+
+?>
+
